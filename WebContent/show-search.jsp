@@ -16,10 +16,17 @@
 		@SuppressWarnings("unchecked")
 		List<Car> list = (List<Car>)request.getAttribute("list");
 		for(int i = 0 ; i < list.size() ; i++){	
+			Car c = list.get(i);
 		%>
 			<tr>
 				<td>
-					<a href="ShowCar?id=<%=list.get(i).getId()%>"><img src="D:\iauto\data\<%=list.get(i).getPhoto1()%>"></a>		
+					<table height=150 width="600" background="show.jpg" align="center">
+						<tr>
+							<td>
+								<a href="ShowCar?id=<%=c.getId()%>"><img src="D:\iauto\data\<%=c.getPhoto1()%>" height="150" width="200" border="0"></a>		
+							</td>	
+						</tr>
+					</table>				
 				</td>
 			</tr>
 		<%}%>
