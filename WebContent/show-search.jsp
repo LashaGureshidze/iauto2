@@ -19,7 +19,7 @@
 		%>
 			<tr>
 				<td>
-					<a href="ShowCar?id=<%=list.get(i).getId()%>"><img src=<%=list.get(i).getPhoto1()%>></a>		
+					<a href="ShowCar?id=<%=list.get(i).getId()%>"><img src="D:\iauto\data\<%=list.get(i).getPhoto1()%>"></a>		
 				</td>
 			</tr>
 		<%}%>
