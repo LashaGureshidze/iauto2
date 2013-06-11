@@ -13,13 +13,16 @@
 	<%@include file="search-table.jsp"%>
 	<table align="center">
 		<%
+		@SuppressWarnings("unchecked")
 		List<Car> list = (List<Car>)request.getAttribute("list");
 		for(int i = 0 ; i < list.size() ; i++){	
 		%>
-			<tr><td><a href="ShowCar?id="+<%=list.get(i).getId()%>><img src="data:image/png;base64,"+<%=list.get(i).getPhoto1()%>></a></td></tr>
-		<%
-		}
-		%>
+			<tr>
+				<td>
+					<a href="ShowCar?id=<%=list.get(i).getId()%>"><img src=<%=list.get(i).getPhoto1()%>></a>		
+				</td>
+			</tr>
+		<%}%>
 	</table>
 </body>
 </html>
