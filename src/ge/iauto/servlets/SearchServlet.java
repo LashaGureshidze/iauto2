@@ -70,9 +70,8 @@ public class SearchServlet extends HttpServlet {
 		
 		PersistenceService service = (PersistenceService) request.getServletContext().getAttribute("persistenceService");
 		List<Car> result = service.loadCars(data, 0, 100);	//აქ გადაეცემა შესაბამისად რომელი ინდეხიდან გინდა, და რამდენი გინდა
-		for (Car car : result) {
-			//TODO
-		}
+		request.setAttribute("list", result);
+		request.getRequestDispatcher("show-search.jsp").forward(request, response);
 	}
 	
 	
