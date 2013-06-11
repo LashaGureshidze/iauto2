@@ -5,7 +5,6 @@ import ge.iauto.server.model.Car;
 import ge.iauto.server.model.User;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Iterator;
@@ -66,34 +65,32 @@ public class AddCar extends HttpServlet {
 			            long sizeInBytes = fi.getSize();
 			         // Write the file
 			            if(!fileName.isEmpty() && sizeInBytes <= 160000){
+			            	String fullFilePath = null;
 			            	if( fileName.lastIndexOf("\\") >= 0 ){
-			            		file = new File( filePath + fileName.substring( fileName.lastIndexOf("\\"))) ;
+			            		fullFilePath = filePath + fileName.substring( fileName.lastIndexOf("\\"));
 			            	}else{
-			            		file = new File( filePath + fileName.substring(fileName.lastIndexOf("\\")+1)) ;
+			            		fullFilePath = filePath + fileName.substring(fileName.lastIndexOf("\\")+1);
 			                	}
-			        //converting into byte[]
+			            	file = new File(fullFilePath);
 			            	fi.write(file);
-			            	byte[] bFile = new byte[(int) file.length()];   
-			            	FileInputStream fileInputStream = new FileInputStream(file);
-			            	fileInputStream.read(bFile);
-			            	fileInputStream.close();
+			            	
 			            	switch(index){
-			            	case 1: car.setPhoto1(bFile);
+			            	case 1: car.setPhoto1(fileName);
 			            			index++;
 			            		    break;
-			            	case 2: car.setPhoto2(bFile);
+			            	case 2: car.setPhoto2(fileName);
 			            			index++;
 	            		    		break;
-			            	case 3: car.setPhoto3(bFile);
+			            	case 3: car.setPhoto3(fileName);
 			            			index++;
 			            			break;
-			            	case 4: car.setPhoto4(bFile);
+			            	case 4: car.setPhoto4(fileName);
 			            			index++;
 			            			break;
-			            	case 5: car.setPhoto5(bFile);
+			            	case 5: car.setPhoto5(fileName);
 					            	index++;		
 					            	break;
-			            	case 6: car.setPhoto6(bFile);
+			            	case 6: car.setPhoto6(fileName);
 				            	index++;		
 				            	break;
 			            	}
