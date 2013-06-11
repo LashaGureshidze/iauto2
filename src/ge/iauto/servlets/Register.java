@@ -32,7 +32,7 @@ public class Register extends HttpServlet {
 			newUser.setMale((request.getSession().getAttribute("sex")).equals("male"));
 			newUser.setBirthday((String) request.getSession().getAttribute("birthday"));
 			
-			PersistenceService service = new PersistenceService();
+			PersistenceService service = (PersistenceService) request.getServletContext().getAttribute("persistenceService");
 			service.saveUser(newUser);
 			
 			request.getRequestDispatcher("register-successful.jsp").forward(request, response);

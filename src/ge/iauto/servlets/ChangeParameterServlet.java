@@ -42,7 +42,7 @@ public class ChangeParameterServlet extends HttpServlet {
 		errorList.add(null); errorList.add(null);
 		boolean added = false;
 		
-		PersistenceService service = new PersistenceService();
+		PersistenceService service = (PersistenceService) request.getServletContext().getAttribute("persistenceService");
 		User user = service.getUser(request.getParameter("oldUsername"), request.getParameter("oldPassword"));
 		
 		if (!request.getParameter("newUsername").isEmpty()) {

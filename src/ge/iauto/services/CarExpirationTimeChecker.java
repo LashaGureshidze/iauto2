@@ -9,6 +9,8 @@ import java.util.TimerTask;
 public class CarExpirationTimeChecker {
 private static Timer timer;
 	private static int exp = 20;
+	
+	private static PersistenceService service = new PersistenceService();
 
 	private static TimerTask timerTask;
 	
@@ -18,7 +20,6 @@ private static Timer timer;
 			@Override
 			public void run() {
 				try {
-					PersistenceService service = new PersistenceService();
 					service.checkCarExpiration(new Date(), exp);
 					
 				} catch (Throwable t) {

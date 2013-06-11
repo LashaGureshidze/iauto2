@@ -97,7 +97,7 @@ public class PersistenceService {
 	/**
 	 * დააბრუნებს true თუ მომხმარებელი გადმოცემული უზერნეიმით არსებობს, წინააღმდეგ შემთხხვევვაში დააბრუნებს false
 	 * @param username
-	 * @return
+	 * @return 
 	 */
 	public boolean existsUserName(String username){
 		EntityManager entitymanager = PersistenceProvider.createEM();

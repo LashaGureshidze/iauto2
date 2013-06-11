@@ -43,7 +43,7 @@ public class AddCar extends HttpServlet {
 		if(request.getSession().getAttribute("user") == null){
 			request.getRequestDispatcher("log-in.jsp").forward(request, response);
 		}else{
-			PersistenceService service = new PersistenceService();
+			PersistenceService service = (PersistenceService) request.getServletContext().getAttribute("persistenceService");
 			Car car = new Car();
 			car.setUser((User)request.getSession().getAttribute("user"));
 			car.setUploaddate(new Date());

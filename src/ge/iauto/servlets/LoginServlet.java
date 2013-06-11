@@ -43,7 +43,7 @@ public class LoginServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {	
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		PersistenceService service = new PersistenceService();
+		PersistenceService service = (PersistenceService) request.getServletContext().getAttribute("persistenceService");
 		User user = service.getUser(username, password);
 		if (user == null) {
 			RequestDispatcher dispatcher = request

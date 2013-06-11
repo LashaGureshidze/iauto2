@@ -48,6 +48,9 @@ public class ServletListener implements ServletContextListener {
     	}
         arg0.getServletContext().setAttribute("idByName", Ids);
         arg0.getServletContext().setAttribute("carById", cars);
+        
+        //=======================save PersistenceService==========
+        arg0.getServletContext().setAttribute("persistenceService", new PersistenceService());
     
         //=======================load Locations==========
         List<Location> list = service.getLocations();
