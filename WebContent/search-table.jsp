@@ -74,7 +74,7 @@
 		var newOption;
 		if (which == "მწარმოებელი" || which == "ყველა") {
 			newOption = document.createElement("option");
-			newOption.value = "0";
+			newOption.value = "";
 			newOption.text = "მოდელი";
 			try {
 				cSelect.add(newOption); 
