@@ -80,9 +80,27 @@
 	cursor: pointer;
 }
 
-#show.cover {
+#show:hover {
 	background-color: #3399FF;
 	color: black;
+}
+.yearBox {
+	width: 64px;
+	height: 25px;
+	border-radius: 3px;
+	border-color: #F0F0F0;
+}
+.yearBox:HOVER {
+	border-color: #99CCFF;
+}
+.engineBox {
+	width: 50px;
+	height: 25px;
+	border-radius: 3px;
+	border-color: #F0F0F0;
+}
+.engineBox:HOVER {
+	border-color: #99CCFF;
 }
 </style>
 
@@ -96,7 +114,7 @@
 				<table width="80%" border="0">
 					<tr>
 						<td align="right" width="25%">გამოშვების წელი:</td>
-						<td align="left" width="25%"><select id="prodyear"
+						<td align="left" width="25%"><select class="yearBox" id="prodyear"
 							onchange="count()">
 								<option value='1993'>1993</option>
 								<option value='1994'>1994</option>
@@ -124,7 +142,7 @@
 					</tr>
 					<tr>
 						<td align="right" width="25%">ძრავის მოცულობა:</td>
-						<td align="left" width="25%"><select id="enginevolume"
+						<td align="left" width="25%"><select class="engineBox" id="enginevolume"
 							onchange="count()">
 								<option selected="selected" value=''></option>
 								<%
@@ -193,7 +211,7 @@
 			value="დაწვრილებით" />
 		<div class="inner" style="display: none;">
 			<form>
-				<fieldset style="text-align: left;">
+				<fieldset style="text-align: left; border: 2px solid #D8D8D8; box-shadow: 4px 4px 21px -4px #858585;">
 					<table width=80% border="0">
 						<tr>
 							<td>

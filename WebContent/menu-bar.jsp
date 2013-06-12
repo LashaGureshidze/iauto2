@@ -17,8 +17,7 @@
 	display: inline;
 }
 
-.menu td a {
-	text-shadow: 0 0 0.2em #000;
+.aStyle {
 	padding: 10px 25px 10px 25px;
 	text-decoration: none;
 	float: left;
@@ -28,7 +27,7 @@
 	border-radius: 2px;
 }
 
-.menu td a:hover {
+.aStyle:hover {
 	background-color: #3399FF;
 	color: white;
 }
@@ -40,22 +39,22 @@
 			<td>
 				<table>
 					<tr class="menu">
-						<td><a href="/IAUTO/HomeServlet">მთავარი</a></td>
-						<td><a href="/IAUTO/MyPageServlet">ჩემი გვერდი</a></td>
-						<td><a href="/IAUTO/CalculatorServlet">განბჟების
+						<td><a class="aStyle" href="/IAUTO/HomeServlet">მთავარი</a></td>
+						<td><a class="aStyle" href="/IAUTO/MyPageServlet">ჩემი გვერდი</a></td>
+						<td><a class="aStyle" href="/IAUTO/CalculatorServlet">განბჟების
 								კალკულატორი</a></td>
 						<%
 							if (request.getSession().getAttribute("user") == null) {
 						%>
-						<td><a href="/IAUTO/RegisterServlet">რეგისტრაცია</a></td>
-						<td><a href="log-in.jsp">შესვლა</a></td>
+						<td><a class="aStyle" href="/IAUTO/RegisterServlet">რეგისტრაცია</a></td>
+						<td><a class="aStyle" href="log-in.jsp">შესვლა</a></td>
 						<%
 							} else {
 								User user = (User) request.getSession().getAttribute("user");
 								String name = user.getUsername();
 						%>
-						<td><a href="/IAUTO/MyPageServlet"><%=name%> </a></td>
-						<td><a href="/IAUTO/LogoutServlet">გამოსვლა</a></td>
+						<td><a class="aStyle" href="/IAUTO/MyPageServlet"><%=name%> </a></td>
+						<td><a class="aStyle" href="/IAUTO/LogoutServlet">გამოსვლა</a></td>
 						<%
 							}
 						%>

@@ -17,8 +17,9 @@
 
 #axali_dzebna {
 	width: 814px;
-	background: rgb(240, 240, 240);
-	border: 5px solid rgb(255, 255, 255);
+	background-repeat: no-repeat;
+	background-image: url(bg.png);
+	border: 2px solid #D8D8D8;
 	box-shadow: 4px 4px 21px -4px #858585;
 	text-shadow: rgba(180, 78, 78, 0.22) 0.1em 0.1em 0.2em;
 	font-weight: normal;
@@ -44,6 +45,7 @@
 	width: 150px;
 	height: 28px;
 	border-radius: 2px;
+	border-color: #F0F0F0;
 	margin-top: 3px;
 	text-shadow: rgba(78, 78, 78, 0.12) 0.1em 0.1em 0.2em;
 }
@@ -65,6 +67,15 @@
 .dzebna:hover {
 	background-color: #3399FF;
 	color: white;
+}
+.field {
+	border-radius: 3px;
+}
+.field:HOVER {
+	border-color: #A5D3FF;
+}
+.seleqtebi:HOVER {
+	border-color: #99CCFF;
 }
 </style>
 
@@ -137,7 +148,7 @@
 <body>
 	<form action="SearchServlet" method="get">
 		<div id="axali_dzebna">
-			<div id="gamochenili">
+			<div style="margin-top: 10px;" align="center" id="gamochenili">
 				<div id="pirveli_rigi">
 					<span class="sigane" style="width: 150px;">
 					 <select name="carmake_id" id="carmake_id" class="seleqtebi"
@@ -201,8 +212,8 @@
 					</select>
 					</span> <span class="sigane" style="text-align: right; width: 200px;">
 						<a style="">ფასი</a> 
-						<input type="text" onkeypress="return isNumber(event)" id="price_from" name="price_from" placeholder="დან" tabindex="6" style="height: 22px; width: 69px; border-radius: 2px;" />
-						<input type="text" id="price_to" name="price_to" placeholder="მდე" tabindex="7" style="height: 22px; width: 69px; border-radius: 2px;">
+						<input class="field" type="text" onkeypress="return isNumber(event)" id="price_from" name="price_from" placeholder="დან" tabindex="6" style="height: 22px; width: 69px; border-radius: 2px;" />
+						<input class="field" type="text" onkeypress="return isNumber(event)" id="price_to" name="price_to" placeholder="მდე" tabindex="7" style="height: 22px; width: 69px; border-radius: 2px;">
 					</span> <span class="sigane" style="text-align: right;">
 					 <select id="fuel" name="fuel" class="seleqtebi">
 							<option value="">საწვავის ტიპი</option>

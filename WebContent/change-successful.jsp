@@ -19,6 +19,7 @@ div.centerStyle {
     color:green;
 }
 #myPageButton {
+	text-decoration: none;
 	background: #A8A8A8;
 	padding: 3px 17px;
 	color: black;
@@ -31,7 +32,7 @@ div.centerStyle {
 	cursor: pointer;
 }
 
-#myPageButton.hover{
+#myPageButton:hover{
 	background-color: #3399FF;
 	color: black;
 }

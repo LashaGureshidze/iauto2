@@ -14,7 +14,7 @@
 <title>www.IAuto.ge - რეგისტრაცია</title>
 
 <style>
-#registerButton {
+.registerButton {
 	background: #66CCFF;
 	padding: 3px 17px;
 	color: black;
@@ -27,9 +27,30 @@
 	cursor: pointer;
 }
 
-#registerButton:hover{
+.registerButton:hover{
 	background-color: #3399FF;
 	color: black;
+}
+.fieldSet {
+	box-shadow: 0 0 12px #AAAAAA;
+	width: 770px;
+	margin: auto;
+	border-radius: 7px;
+}
+.field {
+	border-radius: 3px;
+}
+.field:HOVER {
+	border-color: #99CCFF;
+}
+.yearBox {
+	width: 64px;
+	height: 25px;
+	border-radius: 3px;
+	border-color: #F0F0F0;
+}
+.yearBox:HOVER {
+	border-color: #99CCFF;
 }
 </style>
 
@@ -76,7 +97,7 @@ function checkPasswordMatch(pos) {
 <%@include file="menu-bar.jsp"%>
 </head>
 <body>
-	<fieldset style="background-color:rgb(240,240,240); width:770px; margin:auto;">
+	<fieldset class="fieldSet" style="background-repeat: no-repeat; background-image: url(bg.png);">
 	<form action="Verification" method="post">
 	<table width="100%" border="0">
 		<%
@@ -88,8 +109,8 @@ function checkPasswordMatch(pos) {
 				მომხმარებელი (username)<font color="red">*</font>: 
 			</td>
 			<td class="reg_class_value">					
-				<input id="username" type="text" size="20" name="username" <% if (error != null) out.println("value='" + request.getParameter("username") + "'"); %> onchange="checkUsernameOrEmail()">
-				<% if (error != null && error.get(0) != null) out.println("<font size='2' color='red' >" + error.get(0) + "</font>"); %>
+				<input class="field" id="username" type="text" size="20" name="username" <% if (error != null) out.println("value='" + request.getParameter("username") + "'"); %> onchange="checkUsernameOrEmail()">
+				<% if (error != null && error.get(0) != null) out.println("<font id='userError' size='2' color='red' >" + error.get(0) + "</font>"); %>
 			</td>
 		</tr>
 		
@@ -98,7 +119,7 @@ function checkPasswordMatch(pos) {
 				პაროლი<font color="red">*</font>: 
 			</td>
 			<td class="reg_class_value">					
-				<input id="pass" type="password" size="20" name="password" onchange="checkPasswordMatch('up')">
+				<input class="field" id="pass" type="password" size="20" name="password" onchange="checkPasswordMatch('up')">
 				<% if (error != null && error.get(1) != null) out.println("<font size='2' color='red'>" + error.get(1) + "</font>"); %>
 				<% out.print("<font size='2' color='red' id='up'>" + "" + "</font>"); %>
 			</td>
@@ -109,7 +130,7 @@ function checkPasswordMatch(pos) {
 				გაიმეორეთ პაროლი<font color="red">*</font>: 
 			</td>
 			<td class="reg_class_value">					
-				<input id="rpass" type="password" size="20" name="rpassword" onchange="checkPasswordMatch('down')">
+				<input class="field" id="rpass" type="password" size="20" name="rpassword" onchange="checkPasswordMatch('down')">
 				<% out.print("<font size='2' color='red' id='down'>" + "" + "</font>"); %>
 			</td>
 		</tr>
@@ -119,7 +140,7 @@ function checkPasswordMatch(pos) {
 				სახელი: 
 			</td>
 			<td class="reg_class_value">					
-				<input type="text" size="20" name="name" <% if (error != null) out.println("value='" + request.getParameter("name") + "'"); %> >
+				<input class="field" type="text" size="20" name="name" <% if (error != null) out.println("value='" + request.getParameter("name") + "'"); %> >
 			</td>
 		</tr>
 		
@@ -128,7 +149,7 @@ function checkPasswordMatch(pos) {
 				გვარი: 
 			</td>
 			<td class="reg_class_value">					
-				<input type="text" size="20" name="lastname" <% if (error != null) out.println("value='" + request.getParameter("lastname") + "'"); %> >
+				<input class="field" type="text" size="20" name="lastname" <% if (error != null) out.println("value='" + request.getParameter("lastname") + "'"); %> >
 			</td>
 		</tr>
 		
@@ -137,8 +158,8 @@ function checkPasswordMatch(pos) {
 				ელ-ფოსტა<font color="red">*</font>: 
 			</td>
 			<td class="reg_class_value">					
-				<input id="email" type="text" size="20" name="email" <% if (error != null) out.println("value='" + request.getParameter("email") + "'"); %> onchange="checkUsernameOrEmail()">
-				<% if (error != null && error.get(2) != null) out.println("<font size='2' color='red'>" + error.get(2) + "</font>"); %>
+				<input class="field" id="email" type="text" size="20" name="email" <% if (error != null) out.println("value='" + request.getParameter("email") + "'"); %> onchange="checkUsernameOrEmail()">
+				<% if (error != null && error.get(2) != null) out.println("<font id='emailError' size='2' color='red'>" + error.get(2) + "</font>"); %>
 			</td>
 		</tr>
 		
@@ -157,7 +178,7 @@ function checkPasswordMatch(pos) {
 				დაბადების წელი:
 			</td>
 			<td class="reg_class_value">					
-				<select name="birthday">
+				<select class="yearBox" name="birthday">
 				<%
 					for (int i = 1913; i < 2004; i++)
 						out.println("<option value='" + i + "'>" + i + "</option>");
@@ -167,7 +188,7 @@ function checkPasswordMatch(pos) {
 		</tr>
 		<tr>
 			<td align="center">
-				<br><input id="registerButton" type="submit" value="რეგისტრაცია" disabled="disabled"/>
+				<br><input class="registerButton" id="registerButton" type="submit" value="რეგისტრაცია" disabled="disabled"/>
 			</td>
 		</tr>
 	</table>

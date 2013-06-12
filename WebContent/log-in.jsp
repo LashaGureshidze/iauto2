@@ -25,9 +25,23 @@
 	cursor: pointer;
 }
 
-#dzebna.hover {
+#dzebna:hover {
 	background-color: #3399FF;
 	color: black;
+}
+.fieldSet {
+	background-repeat: no-repeat;
+	background-image: url(bg.png);
+	box-shadow: 0 0 12px #AAAAAA;
+	width: 770px;
+	margin: auto;
+	border-radius: 7px;
+}
+.field {
+	border-radius: 3px;
+}
+.field:HOVER {
+	border-color: #99CCFF;
 }
 </style>
 </head>
@@ -41,21 +55,21 @@
 			message = "სწორად შეავსეთ ველი";
 	%>
 	<form action="LoginServlet" method="post">
-		<fieldset
+		<fieldset class="fieldSet"
 			style="background-color: rgb(240, 240, 240); width: 300px; margin: auto;">
 			<table width="300px" border="0">
 				<tr>
 					<td class="reg_class_label" style="width: 300px;">მომხმარებელი<font
 						color="red">*</font>:
 					</td>
-					<td class="reg_class_value"><input type="text" size="20"
+					<td class="reg_class_value"><input class="field" type="text" size="20"
 						name="username"></td>
 				</tr>
 				<tr>
 					<td class="reg_class_label" style="width: 300px;">პაროლი<font
 						color="red">*</font>:
 					</td>
-					<td class="reg_class_value"><input type="password" size="20"
+					<td class="reg_class_value"><input class="field" type="password" size="20"
 						name="password"></td>
 				</tr>
 				<tr>

@@ -35,9 +35,29 @@
 	cursor: pointer;
 }
 
-#adding.cover {
+#adding:hover {
 	background-color: #3399FF;
 	color: black;
+}
+.fieldSet {
+	border: 2px solid #D8D8D8;
+	box-shadow: 4px 4px 21px -4px #858585;
+	width: 800px;
+	margin: auto;
+	border-radius: 7px;
+}
+.field {
+	border-radius: 1px;
+}
+.field:HOVER {
+	border-color: #99CCFF;
+}
+.box {
+	border-radius: 3px;
+	border-color: #F0F0F0;
+}
+.box:HOVER {
+	border-color: #99CCFF;
 }
 </style>
 <script type="text/javascript">
@@ -120,11 +140,12 @@ function isNumber(e) {
 </script>
 
 <body>
+	<fieldset class="fieldSet">
 	<form action="AddCar" method="post" enctype="multipart/form-data" acceptcharset="UTF-8">
-		<table width=800 cellspacing=3 border=0>
+		<table width="800px" cellspacing="3px" border="0px">
 			<tr>
 				<td align=right>კატეგორია<font color="red">*</font>:</td>
-				<td align=left><select name=category_id onchange="checkStarFields()"
+				<td align=left><select class="box" name=category_id onchange="checkStarFields()"
 					id=category_id>
 						<option value="">აირჩიეთ კატეგორია</option>
 						<%
@@ -143,7 +164,7 @@ function isNumber(e) {
 			<tr>
 				<td align=right>მწარმოებელი<font color="red">*</font>:</td>
 				<td align=left>
-				<select name="carmake_id" id="carmake_id" onChange="BoxChange(this);" tabindex="1">
+				<select class="box" name="carmake_id" id="carmake_id" onChange="BoxChange(this);" tabindex="1">
 						<option value="" selected="selected"></option>
 							<%
 							@SuppressWarnings("unchecked")
@@ -154,8 +175,8 @@ function isNumber(e) {
 							<%}%>
 				</select></td>
 				<td align="right">ფასი<font color="red">*</font>:</td>
-				<td align="left"><input name="price" id="price" size="6"
-					maxlength="8" onkeypress="return isNumber(event)" onchange="checkStarFields()" /> <select
+				<td align="left"><input class="field" name="price" id="price" size="6"
+					maxlength="8" onkeypress="return isNumber(event)" onchange="checkStarFields()" /> <select class="box"
 					name="currency_id" id="currency_id">
 						<option value="$">$</option>
 						<option value="ევრო">ევრო</option>
@@ -165,7 +186,7 @@ function isNumber(e) {
 			<tr>
 				<td align="right">მოდელი<font color="red">*</font>:</td>
 				<td align="left">
-					<select name="model_id" id="model_id" class="seleqtebi" onchange="checkStarFields()">
+					<select class="box" name="model_id" id="model_id" class="seleqtebi" onchange="checkStarFields()">
 							<option value="" selected="selected"></option>
 					</select> 
 				</td>
@@ -176,7 +197,7 @@ function isNumber(e) {
 			<tr>
 			<tr>
 				<td align="right">მდებარეობა<font color="red">*</font>:</td>
-				<td align="left"><select name="location_id" id="location_id" onchange="checkStarFields()">
+				<td align="left"><select class="box" name="location_id" id="location_id" onchange="checkStarFields()">
 						<option value="" selected="selected"></option>
 						<%
 							@SuppressWarnings("unchecked")
@@ -198,7 +219,7 @@ function isNumber(e) {
 
 			<tr>
 				<td align=right>გამოშვების წელი<font color="red">*</font>:</td>
-				<td align=left><select name='prod_year' id='prod_year' onchange="checkStarFields()">
+				<td align=left><select class="box" name='prod_year' id='prod_year' onchange="checkStarFields()">
 						<option></option>
 						<%
 							for (int k = 1960; k <= 2013; k++) {
@@ -207,7 +228,7 @@ function isNumber(e) {
 						<%
 							}
 						%>
-				</select> თვე<font color="red">*</font>: <select name="prod_month" id="prod_month" onchange="checkStarFields()"><option value=""></option>
+				</select> თვე<font color="red">*</font>: <select class="box" name="prod_month" id="prod_month" onchange="checkStarFields()"><option value=""></option>
 						<%
 							for (int k = 1; k <= 12; k++) {
 						%>
@@ -217,7 +238,7 @@ function isNumber(e) {
 						%>
 				</select></td>
 				<td align=right>ძრავის მოცულობა<font color="red">*</font>:</td>
-				<td align=left><select name="engine_volume" id="engine_volume" onchange="checkStarFields()">
+				<td align=left><select class="box" name="engine_volume" id="engine_volume" onchange="checkStarFields()">
 						<option selected="selected" value=''></option>
 						<%
 							for (int k = 1; k <= 80; k++) {
@@ -232,13 +253,13 @@ function isNumber(e) {
 			</tr>
 			<tr>
 				<td align=right>გარბენი</td>
-				<td align=left><input name="car_run" size="7" maxlength="7"
-					onkeypress="return isNumber(event)"> <select
+				<td align=left><input class="field" name="car_run" size="7" maxlength="7"
+					onkeypress="return isNumber(event)"> <select class="box"
 					name="car_run_dim" id="car_run_dim"><option value="კმ">კმ.</option>
 						<option value="მილი">მილი</option>
 				</select></td>
 				<td align=right>ცილინდრები:</td>
-				<td align=left><select name=cylinders>
+				<td align=left><select class="box" name=cylinders>
 						<%
 							for (int k = 1; k <= 12; k++) {
 						%>
@@ -250,7 +271,7 @@ function isNumber(e) {
 			</tr>
 			<tr>
 				<td align=right>კარები:</td>
-				<td align=left><select name=door_type_id>
+				<td align=left><select class="box" name=door_type_id>
 						<option value=4/5>4/5</option>
 						<option value=2/3>2/3</option>
 						<option value=1>1</option>
@@ -258,7 +279,7 @@ function isNumber(e) {
 						<option value=0>0</option>
 				</select></td>
 				<td align=right>წამყვანი თვლები:</td>
-				<td align=left><select name=drive_type_id>
+				<td align=left><select class="box" name=drive_type_id>
 						<option value=წინა>წინა</option>
 						<option value=უკანა>უკანა</option>
 						<option value=4x4>4x4</option>
@@ -267,7 +288,7 @@ function isNumber(e) {
 			</tr>
 			<tr>
 				<td align=right>აირბეგი:</td>
-				<td align=left><select name=airbags>
+				<td align=left><select class="box" name=airbags>
 						<%
 							for (int k = 1; k <= 12; k++) {
 						%>
@@ -277,7 +298,7 @@ function isNumber(e) {
 						%>
 				</select></td>
 				<td align=right>საწვავის ტიპი:</td>
-				<td align=left><select name=fuel_type_id>
+				<td align=left><select class="box" name=fuel_type_id>
 						<option value=ბენზინი>ბენზინი</option>
 						<option value=ბენზინი/კარბურატორი>ბენზინი/კარბურატორი</option>
 						<option value=დიზელი>დიზელი</option>
@@ -290,7 +311,7 @@ function isNumber(e) {
 
 			<tr>
 				<td align=right>ფერი:</td>
-				<td align=left><select name=color_id>
+				<td align=left><select class="box" name=color_id>
 						<option value=შავი>შავი</option>
 						<option value=თეთრი>თეთრი</option>
 						<option value=ბეჟი>ბეჟი</option>
@@ -310,7 +331,7 @@ function isNumber(e) {
 			</tr>
 			<tr>
 				<td align=right>გადაცემათა კოლოფი:</td>
-				<td align=left><select name="gear_type_id">
+				<td align=left><select class="box" name="gear_type_id">
 						<option value=მექანიკა>მექანიკა</option>
 						<option value=ავტომატიკა>ავტომატიკა</option>
 						<option value=ტიპტრონიკი>ტიპტრონიკი</option>
@@ -328,11 +349,11 @@ function isNumber(e) {
 			</tr>
 			<tr>
 				<td align="right">თქვენი სახელი:</td>
-				<td align="left"><input name="client_nm" size="10"
+				<td align="left"><input class="field" name="client_nm" size="10"
 					maxlength="30"></td>
 				<td align="right">თქვენი ტელეფონი:</td>
 				<td align="left" width="220px"><label id="lab_client_phone">
-				</label> <input name="client_phone_1" id="client_phone_1" value="" size="6"
+				</label> <input class="field" name="client_phone_1" id="client_phone_1" value="" size="6"
 					maxlength="9" onKeyPress="return keyfilter_num(event)"> <!-- <br/><input type="checkbox" checked="checked" id="is_georgia" onclick="georgiaOnClick()" name="is_georgia" />საქართველო -->
 				</td>
 			</tr>
@@ -385,7 +406,7 @@ function isNumber(e) {
 			<tr>
 				<td align = right ><b>VIN კოდი</b>:
 				</td>
-				<td align =left ><input type=text name="vin"  id="vin" >
+				<td align =left ><input class="field" type="text" name="vin"  id="vin" >
 				</td>
 
 			</tr>
@@ -441,6 +462,7 @@ function isNumber(e) {
 
 		</table>
 	</form>
+	</fieldset>
 </body>
 </html>
 

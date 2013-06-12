@@ -28,7 +28,7 @@
 	cursor: pointer;
 }
 
-#changeButton.hover{
+#changeButton:hover{
 	background-color: #3399FF;
 	color: black;
 }
@@ -46,9 +46,23 @@
 	cursor: pointer;
 }
 
-#backButton.hover{
-	background-color: #3399FF;
+#backButton:hover{
+	background-color: #888888;
 	color: black;
+}
+.fieldSet {
+	background-repeat: no-repeat;
+	background-image: url(bg.png);
+	box-shadow: 0 0 12px #AAAAAA;
+	width: 770px;
+	margin: auto;
+	border-radius: 7px;
+}
+.field {
+	border-radius: 3px;
+}
+.field:HOVER {
+	border-color: #99CCFF;
 }
 </style>
 
@@ -141,7 +155,7 @@ function checkPasswordMatch(pos) {
 <%@include file="menu-bar.jsp"%>
 </head>
 <body>
-	<fieldset style="background-color:rgb(240,240,240); width:770px; margin:auto;">
+	<fieldset class="fieldSet" style="background-color:rgb(240,240,240); width:770px; margin:auto;">
 	<form action="ChangeParameterServlet" method="post">
 	<table width="100%" border="0">
 		<%
@@ -153,7 +167,7 @@ function checkPasswordMatch(pos) {
 				ახალი username: 
 			</td>
 			<td class="reg_class_value">					
-				<input id="newUsername" type="text" size="20" name="newUsername" <% if (error != null) out.println("value='" + request.getParameter("newUsername") + "'"); %> onchange="checkNewUserOrEmail()">
+				<input class="field" id="newUsername" type="text" size="20" name="newUsername" <% if (error != null) out.println("value='" + request.getParameter("newUsername") + "'"); %> onchange="checkNewUserOrEmail()">
 				<% if (error != null && error.get(0) != null) out.println("<font size='2' color='red' >" + error.get(0) + "</font>"); %>
 			</td>
 		</tr>
@@ -163,7 +177,7 @@ function checkPasswordMatch(pos) {
 				ახალი პაროლი: 
 			</td>
 			<td class="reg_class_value">					
-				<input id="pass" type="password" size="20" name="password" onchange="checkPasswordMatch('up')">
+				<input class="field" id="pass" type="password" size="20" name="password" onchange="checkPasswordMatch('up')">
 				<% out.print("<font size='2' color='red' id='up'>" + "" + "</font>"); %>
 			</td>
 		</tr>
@@ -173,7 +187,7 @@ function checkPasswordMatch(pos) {
 				გაიმეორეთ ახალი პაროლი: 
 			</td>
 			<td class="reg_class_value">					
-				<input id="rpass" type="password" size="20" name="rpassword" onchange="checkPasswordMatch('down')">
+				<input class="field" id="rpass" type="password" size="20" name="rpassword" onchange="checkPasswordMatch('down')">
 				<% out.print("<font size='2' color='red' id='down'>" + "" + "</font>"); %>
 			</td>
 		</tr>
@@ -183,7 +197,7 @@ function checkPasswordMatch(pos) {
 				ახალი ელ-ფოსტა: 
 			</td>
 			<td class="reg_class_value">					
-				<input id="newEmail" type="text" size="20" name="newEmail" <% if (error != null) out.println("value='" + request.getParameter("newEmail") + "'"); %> onchange="checkNewUserOrEmail()">
+				<input class="field" id="newEmail" type="text" size="20" name="newEmail" <% if (error != null) out.println("value='" + request.getParameter("newEmail") + "'"); %> onchange="checkNewUserOrEmail()">
 				<% if (error != null && error.get(1) != null) out.println("<font size='2' color='red'>" + error.get(1) + "</font>"); %>
 			</td>
 		</tr>
@@ -193,7 +207,7 @@ function checkPasswordMatch(pos) {
 				ძველი username<font color="red">*</font>: 
 			</td>
 			<td class="reg_class_value" style="padding-top:30px;">					
-				<input id="oldUser" type="text" size="20" name="oldUsername" onchange="checkOldUser()">
+				<input class="field" id="oldUser" type="text" size="20" name="oldUsername" onchange="checkOldUser()">
 				<% out.print("<font size='2' color='red' id='userErrorLabel'>" + "" + "</font>"); %>
 			</td>
 		</tr>
@@ -203,7 +217,7 @@ function checkPasswordMatch(pos) {
 				ძველი პაროლი<font color="red">*</font>: 
 			</td>
 			<td class="reg_class_value" style="padding-bottom:30px">					
-				<input id="oldPass" type="password" size="20" name="oldPassword" onchange="checkOldPassword()">
+				<input class="field" id="oldPass" type="password" size="20" name="oldPassword" onchange="checkOldPassword()">
 				<% out.print("<font size='2' color='red' id='passErrorLabel'>" + "" + "</font>"); %>
 			</td>
 		</tr>

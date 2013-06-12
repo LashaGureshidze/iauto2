@@ -21,14 +21,37 @@ div.centerStyle {
     height:100px;
     margin:auto;
 }
+.submitButton {
+	background: #66CCFF;
+	padding: 3px 17px;
+	color: black;
+	font-family: 'Helvetica Neue', sans-serif;
+	font-size: 15px;
+	border-radius: 2px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border: 0px solid rgb(213, 150, 17);
+	cursor: pointer;
+}
+
+.submitButton:HOVER {
+	background-color: #3399FF;
+	color: black;
+}
+.field {
+	border-radius: 2px;
+}
+.field:HOVER {
+	border-color: #99CCFF;
+}
 </style>
 </head>
 <body>
 	<div class="centerStyle" align="center">
 		<p>თქვენ მიერ მითითებული დამადასტურებელი კოდი არ არის სწორი! გთხოვთ, შეიყვანოთ თავიდან.</p>
 			<form method="post" action="Register">
-				<input type="text" size="20" name="code">
-				<input type="submit" value="დადასტურება"/>
+				<input class="field" type="text" size="20" name="code">
+				<input class="submitButton" type="submit" value="დადასტურება"/>
 			</form>
 	</div>
 </body>

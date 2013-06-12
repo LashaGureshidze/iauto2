@@ -17,6 +17,12 @@
 	text-decoration: none;
 	color: #3399FF;
 }
+.mainTable {
+	width: 600px;
+	background-color: rgb(240,240,240);
+	box-shadow: 0 0 12px #AAAAAA;
+	border-radius: 7px;
+}
 </style>
 
 </head>
@@ -24,7 +30,7 @@
 	<%@include file="menu-bar.jsp"%>
 	<%@include file="search-table.jsp"%>
 	<fieldset style="margin: 10px auto; width: 800px; border: 0px;">
-	<table>
+	<table class="mainTable">
 		<%
 		@SuppressWarnings("unchecked")
 		List<Car> list = (List<Car>)request.getAttribute("list");
@@ -33,7 +39,7 @@
 		%>
 		<tr>
 			<td>
-				<div style="background-image: url(top-line.jpg); background-size: 100%; height: 5px; width: 100%"></div>
+				<div style="background-image: url(top-line.jpg); background-size: 100%; height: 5px; width: 600px;"></div>
 				<table height="110px" width="600px" bgcolor="#F8F8F8">
 					<tr>
 						<td width="21%">

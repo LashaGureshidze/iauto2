@@ -6,25 +6,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>ჩემი გვერდი</title>
 <style>
-a:hover,a:active {
-	font-family: monospace;
-}
-
-a:visited,a:link {
-	text-decoration: none;
-}
-
-a:visited,a:link {
-	color: black;
-}
-
-a:hover,a:active {
-	color: orange;
-}
-
 .center {
 	margin: auto;
-	width: 70%;
+	width: 700px;
+}
+.aStyle2 {
+	color: rgb(140, 140, 140);
+	font-weight: bold;
+	font-size: 13px;
+	text-decoration: none;
+}
+.aStyle2:HOVER {
+	color: #3399FF;
+	font-weight: bold;
+	font-size: 13px;
+	text-decoration: none;
 }
 </style>
 </head>
@@ -34,24 +30,25 @@ a:hover,a:active {
 	<div class="center">
 		<table>
 			<tr align="center">
-				<td background="clear_bg.png" align="center"
-					style="background-repeat: no-repeat" width="793" height="22"><a
-					style="font-weight: bold; font-size: 13px; text-decoration: none; color: #ffffff;"
-					href="my-page.jsp">ჩემი გვერდი</a></td>
+				<td height="25px">
+					<div style="background-repeat: no-repeat; background-image: url(clear_bg.png); background-size: 700px 25px; height: 25px; width: 700px;">
+						<a style="font-weight: bold; font-size: 13px; text-decoration: none; color: #ffffff;"
+						href="my-page.jsp">ჩემი გვერდი</a>
+					</div>
+				</td>
 			</tr>
 		</table>
 	</div>
 	<div class="center"
-		style="font-family: verdana; padding: 5px; border-radius: 5px; border: 2px solid #3399FF;">
+		style="font-family: verdana; padding: 5px; border-radius: 3px; border: 2px solid #D8D8D8; box-shadow: 4px 4px 21px -4px #858585;">
 		<table>
 			<tr align="center">
-
 				<td width="25%" valign="top" align="left"><a
-					href="add-cars.jsp">განცხადების დამატება</a> <br> <a
-					href="/IAUTO/MyCarsServlet">ჩემი განცხადებები</a> <br> <a
-					href="profile-parameters.jsp">ანგარიშის რედაქტირება</a> <br> <a
-					href="profile-parameters.jsp">პაროლის შეცვლა</a> <br> <a
-					href="/IAUTO/LogoutServlet">გასვლა</a><br></td>
+					class="aStyle2" href="add-cars.jsp">განცხადების დამატება</a> <br> <a
+					class="aStyle2" href="/IAUTO/MyCarsServlet">ჩემი განცხადებები</a> <br> <a
+					class="aStyle2" href="profile-parameters.jsp">ანგარიშის რედაქტირება</a> <br> <a
+					class="aStyle2" href="profile-parameters.jsp">პაროლის შეცვლა</a> <br> <a
+					class="aStyle2" href="/IAUTO/LogoutServlet">გასვლა</a><br></td>
 			</tr>
 		</table>
 	</div>
