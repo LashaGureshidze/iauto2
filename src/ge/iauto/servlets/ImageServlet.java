@@ -33,6 +33,8 @@ public class ImageServlet extends HttpServlet {
 		response.setContentType("image/gif");
 		if (img != null ) {
 			out.write(img);
+			out.flush();
+			out.close();
 		}
 	}
 }
