@@ -27,7 +27,7 @@
 	cursor: pointer;
 }
 
-#registerButton.hover{
+#registerButton:hover{
 	background-color: #3399FF;
 	color: black;
 }
