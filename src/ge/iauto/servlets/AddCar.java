@@ -185,6 +185,7 @@ public class AddCar extends HttpServlet {
 				e.printStackTrace();
 			}
 			service.saveCar(car);
+			request.getRequestDispatcher("add-car-successful.jsp").forward(request, response);
 		}	
 	}
 

@@ -37,7 +37,7 @@
 				<table height="110px" width="600px" bgcolor="#F8F8F8">
 					<tr>
 						<td width="21%">
-							<a href="ShowCar?id=<%=c.getId()%>"><img src="D:\iauto\data\<%=c.getPhoto1()%>" height="96" width="128" border="0"></a>		
+							<a href="ShowCar?id=<%=c.getId()%>"><img src="ImageServlet?id=<%=c.getId()%>&photoId=photo1" height="96" width="128" border="0"></a>		
 						</td>
 						<td width="79%">
 							<table width="100%" style="font-size: 10pt;">
