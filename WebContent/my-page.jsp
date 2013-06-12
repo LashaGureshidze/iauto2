@@ -48,7 +48,7 @@ a:hover,a:active {
 
 				<td width="25%" valign="top" align="left"><a
 					href="add-cars.jsp">განცხადების დამატება</a> <br> <a
-					href="my-cars.jsp">ჩემი განცხადებები</a> <br> <a
+					href="/IAUTO/MyCarsServlet">ჩემი განცხადებები</a> <br> <a
 					href="profile-parameters.jsp">ანგარიშის რედაქტირება</a> <br> <a
 					href="profile-parameters.jsp">პაროლის შეცვლა</a> <br> <a
 					href="/IAUTO/LogoutServlet">გასვლა</a><br></td>
