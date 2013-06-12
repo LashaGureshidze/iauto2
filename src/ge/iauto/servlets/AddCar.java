@@ -5,7 +5,6 @@ import ge.iauto.server.model.Car;
 import ge.iauto.server.model.User;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Iterator;
@@ -40,6 +39,7 @@ public class AddCar extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@SuppressWarnings("unchecked")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getSession().getAttribute("user") == null){
 			request.getRequestDispatcher("log-in.jsp").forward(request, response);
@@ -49,14 +49,12 @@ public class AddCar extends HttpServlet {
 			car.setUser((User)request.getSession().getAttribute("user"));
 			car.setUploaddate(new Date());
 			
-			File file;
-			String filePath = getServletContext().getInitParameter("file-upload");
 			DiskFileItemFactory factory = new DiskFileItemFactory();
 			factory.setRepository(new File("d:\\iauto"));
 			ServletFileUpload upload = new ServletFileUpload(factory);
 			try {
-				List fileItems = upload.parseRequest(request);
-				Iterator i = fileItems.iterator();
+				List<FileItem> fileItems = upload.parseRequest(request);
+				Iterator<FileItem> i = fileItems.iterator();
 				int index = 1;
 				while(i.hasNext()){
 					FileItem fi = (FileItem)i.next();
@@ -66,19 +64,7 @@ public class AddCar extends HttpServlet {
 			            long sizeInBytes = fi.getSize();
 			         // Write the file
 			            if(!fileName.isEmpty() && sizeInBytes <= 160000){
-			            	String fullFilePath = null;
-			            	if( fileName.lastIndexOf("\\") >= 0 ){
-			            		fullFilePath = filePath + fileName.substring( fileName.lastIndexOf("\\"));
-			            	}else{
-			            		fullFilePath = filePath + fileName.substring(fileName.lastIndexOf("\\")+1);
-			                	}
-			            	file = new File(fullFilePath);
-			            	fi.write(file);
-			            	//converting into byte[]
-			            	byte[] bFile = new byte[(int) file.length()];   
-			            	FileInputStream fileInputStream = new FileInputStream(file);
-			            	fileInputStream.read(bFile);
-			            	fileInputStream.close();
+							byte[] bFile = fi.get();
 			            	switch(index){
 			            	case 1: car.setPhoto1(bFile);
 			            			index++;
