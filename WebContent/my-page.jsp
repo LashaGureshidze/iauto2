@@ -44,7 +44,7 @@
 		<table>
 			<tr align="center">
 				<td width="25%" valign="top" align="left"><a
-					class="aStyle2" href="add-cars.jsp">განცხადების დამატება</a> <br> <a
+					class="aStyle2" href="add-car.jsp">განცხადების დამატება</a> <br> <a
 					class="aStyle2" href="/IAUTO/MyCarsServlet">ჩემი განცხადებები</a> <br> <a
 					class="aStyle2" href="profile-parameters.jsp">ანგარიშის რედაქტირება</a> <br> <a
 					class="aStyle2" href="profile-parameters.jsp">პაროლის შეცვლა</a> <br> <a
