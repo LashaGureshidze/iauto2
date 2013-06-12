@@ -5,6 +5,7 @@ import ge.iauto.server.model.Car;
 import ge.iauto.server.model.User;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Iterator;
@@ -73,24 +74,28 @@ public class AddCar extends HttpServlet {
 			                	}
 			            	file = new File(fullFilePath);
 			            	fi.write(file);
-			            	
+			            	//converting into byte[]
+			            	byte[] bFile = new byte[(int) file.length()];   
+			            	FileInputStream fileInputStream = new FileInputStream(file);
+			            	fileInputStream.read(bFile);
+			            	fileInputStream.close();
 			            	switch(index){
-			            	case 1: car.setPhoto1(fileName);
+			            	case 1: car.setPhoto1(bFile);
 			            			index++;
 			            		    break;
-			            	case 2: car.setPhoto2(fileName);
+			            	case 2: car.setPhoto2(bFile);
 			            			index++;
 	            		    		break;
-			            	case 3: car.setPhoto3(fileName);
+			            	case 3: car.setPhoto3(bFile);
 			            			index++;
 			            			break;
-			            	case 4: car.setPhoto4(fileName);
+			            	case 4: car.setPhoto4(bFile);
 			            			index++;
 			            			break;
-			            	case 5: car.setPhoto5(fileName);
+			            	case 5: car.setPhoto5(bFile);
 					            	index++;		
 					            	break;
-			            	case 6: car.setPhoto6(fileName);
+			            	case 6: car.setPhoto6(bFile);
 				            	index++;		
 				            	break;
 			            	}

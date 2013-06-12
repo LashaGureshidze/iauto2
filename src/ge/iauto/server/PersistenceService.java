@@ -335,6 +335,33 @@ public class PersistenceService {
 		entitymanager.close();
 		return car;
 	}
+	/**
+	 * დააბრუნებს კონკრეტული მანქანის კონკრეტულ სურათს, წარმოდგენოილს ბაიტების მასივად
+	 * @param carId
+	 * @param photoId
+	 * @return
+	 */
+	public byte[] findPhoto(long carId, String photoId) {
+		EntityManager entitymanager = PersistenceProvider.createEM();
+		Car car = entitymanager.find(Car.class, carId);
+		if (car == null) return null;
+		byte[] img = null;
+		if (photoId.equals("photo1")) {
+			img = car.getPhoto1();
+		}else if (photoId.equals("photo2")) {
+			img = car.getPhoto2();
+		}else if (photoId.equals("photo3")) {
+			img = car.getPhoto3();
+		}else if (photoId.equals("photo4")) {
+			img = car.getPhoto4();
+		}else if (photoId.equals("photo5")) {
+			img = car.getPhoto5();
+		}else if (photoId.equals("photo6")) {
+			img = car.getPhoto6();
+		}
+		entitymanager.close();
+		return img;
+	}
 	
 	/**
 	 *განაახლებს მანქანას გადმოცემული ობიექტრის მიხედვით 
@@ -351,7 +378,9 @@ public class PersistenceService {
  * @param id
  */
 	public void updateCarUpploadTime(long id) {
-		Car car = findCar(id);
+		EntityManager entitymanager = PersistenceProvider.createEM();
+		Car car = entitymanager.find(Car.class, id);
+		entitymanager.close();
 		car.setUploaddate(new Date());
 		updateCar(car);
 	}
