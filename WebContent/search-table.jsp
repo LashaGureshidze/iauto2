@@ -13,6 +13,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>www.IAuto.ge</title>
 <style type="text/css">
+
+
 #axali_dzebna {
 	width: 814px;
 	background: rgb(240, 240, 240);

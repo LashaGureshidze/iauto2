@@ -23,7 +23,7 @@
 					<table height=150 width="600" background="show.jpg" align="center">
 						<tr>
 							<td>
-								<a href="ShowCar?id=<%=c.getId()%>"><img src="ImageServlet?photoId=<%=c.getPhoto1()%>&id=<%=c.getId()%>" height="150" width="200" border="0"/></a>		
+								<a href="ShowCar?id=<%=c.getId()%>"><img src="ImageServlet?id=<%=c.getId()%>&photoId=photo1" height="150" width="200" border="0"/></a>		
 							</td>	
 						</tr>
 					</table>				
