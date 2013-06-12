@@ -1,3 +1,4 @@
+<%@page import="ge.iauto.services.CurrencyConvertor"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -51,7 +52,7 @@
 				+ parseInt("" + importi);
 		document.getElementById("lab_total").innerHTML = ""
 				+ parseInt("" + sum);
-		document.getElementById("lab_total_dollar").innerHTML = ""; // aq misaweria convertori lari ro gadaiyvanos dolarshi 
+		document.getElementById("lab_total_dollar").innerHTML = "" +  parseInt("" + <%=CurrencyConvertor.GelToUsd()%> * sum) ;
 	}
 </script>
 
@@ -179,7 +180,7 @@
 						</td>
 						<td align="left" width="25%"><font color="#FF0000"><b><label
 									id="lab_total">0</label> ლარი</b></font> = <font color="#FF0000"><b><label
-									id="lab_total_dollar">0</label>$</b></font> <br />1 USD = 1.6390 GEL</td>
+									id="lab_total_dollar">0</label>$</b></font> <br />1 USD = <%=CurrencyConvertor.UsdToGel()%></td>
 
 					</tr>
 				</table></td>
