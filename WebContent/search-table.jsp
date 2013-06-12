@@ -43,6 +43,7 @@
 .seleqtebi {
 	width: 150px;
 	height: 28px;
+	border-radius: 2px;
 	margin-top: 3px;
 	text-shadow: rgba(78, 78, 78, 0.12) 0.1em 0.1em 0.2em;
 }
@@ -200,8 +201,8 @@
 					</select>
 					</span> <span class="sigane" style="text-align: right; width: 200px;">
 						<a style="">ფასი</a> 
-						<input type="text" onkeypress="return isNumber(event)" id="price_from" name="price_from" placeholder="დან" tabindex="6" style="height: 22px; width: 69px;" />
-						<input type="text" id="price_to" name="price_to" placeholder="მდე" tabindex="7" style="height: 22px; width: 69px;">
+						<input type="text" onkeypress="return isNumber(event)" id="price_from" name="price_from" placeholder="დან" tabindex="6" style="height: 22px; width: 69px; border-radius: 2px;" />
+						<input type="text" id="price_to" name="price_to" placeholder="მდე" tabindex="7" style="height: 22px; width: 69px; border-radius: 2px;">
 					</span> <span class="sigane" style="text-align: right;">
 					 <select id="fuel" name="fuel" class="seleqtebi">
 							<option value="">საწვავის ტიპი</option>
