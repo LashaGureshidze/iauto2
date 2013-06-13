@@ -40,7 +40,7 @@ public class ShowCar extends HttpServlet {
 		// TODO Auto-generated method stub
 		PersistenceService service = (PersistenceService) request.getServletContext().getAttribute("persistenceService");
 		service.increaseViewCount(Long.parseLong(request.getParameter("id")));
-		request.setAttribute("carsToShow", service.findCar(Long.parseLong(request.getParameter("id"))));
+		request.setAttribute("carToShow", service.findCar(Long.parseLong(request.getParameter("id"))));
 		request.getRequestDispatcher("show-car.jsp").forward(request, response);
 	}
 }

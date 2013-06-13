@@ -455,7 +455,10 @@ public class PersistenceService {
 	public void increaseViewCount(long id) {
 		EntityManager entitymanager = PersistenceProvider.createEM();
 		Query qr = entitymanager.createQuery("UPDATE Car c SET c.viewCount = (c.viewCount + 1) WHERE c.id = :id ").setParameter("id", id);
+		entitymanager.getTransaction().begin();
 		qr.executeUpdate();
+		entitymanager.getTransaction().commit();
+		entitymanager.close();
 	}
 	
 	/**
