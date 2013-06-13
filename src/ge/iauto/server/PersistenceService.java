@@ -448,4 +448,13 @@ public class PersistenceService {
 		Query qr = entitymanager.createQuery("FROM Car c WHERE c.user.id =:userId").setParameter("userId", userId);
 		return qr.getResultList();
 	}
+	/**
+	 * გაზრდის ნახვების რიცხვს ერთით, გადმოცემულ  მანქანზე
+	 * @param id
+	 */
+	public void increaseViewCount(long id) {
+		EntityManager entitymanager = PersistenceProvider.createEM();
+		Query qr = entitymanager.createQuery("UPDATE Car c SET c.viewCount = (c.viewCount + 1) WHERE c.id = :id ").setParameter("id", id);
+		qr.executeUpdate();
+	}
 }

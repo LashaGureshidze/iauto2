@@ -106,6 +106,8 @@ public class Car implements Serializable{
 	
 	private String describtion;
 	
+	private int viewCount;
+	
 	private byte[] photo1;
 
 	private byte[] photo2;
@@ -543,5 +545,13 @@ public class Car implements Serializable{
 
 	public void setUploaddate(Date uploaddate) {
 		this.uploaddate = uploaddate;
+	}
+
+	public int getViewCount() {
+		return viewCount;
+	}
+
+	public void setViewCount(int viewCount) {
+		this.viewCount = viewCount;
 	}
 }
