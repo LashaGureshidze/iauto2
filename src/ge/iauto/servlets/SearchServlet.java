@@ -22,73 +22,66 @@ public class SearchServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		boolean valid = true;
-		if(request.getParameter("carmake_id") == null)valid=false;
-		if(request.getParameter("year_from") == null)valid=false;
-		if(request.getParameter("year_to") == null)valid=false;
-		if(request.getParameter("gearbox") == null)valid=false;
-		if(request.getParameter("ganbajebuli") == null)valid=false;
-		if(request.getParameter("carmodel_id") == null)valid=false;
-		if(request.getParameter("rightsteeringwheel") == null)valid=false;
-		if(request.getParameter("fuel") == null)valid=false;
-		if(request.getParameter("category_id") == null)valid=false;
-		if(request.getParameter("location_id") == null)valid=false;
-		if(request.getParameter("last_days") == null)valid=false;
-		if(request.getParameter("page") != null){
-			if(request.getParameter("page").length() > 10){
-				valid=false;
-			}
-		}
-		if(!valid){
-			request.getRequestDispatcher("home-page.jsp").forward(request, response);
-			return;
-		}
 		SearchData data = new SearchData();
-		if(!request.getParameter("carmake_id").isEmpty()) {
+		if(request.getParameter("carmake_id") != null && !request.getParameter("carmake_id").isEmpty()) {
 			data.put("carmake_id", request.getParameter("carmake_id"));
 		}
-		if(!request.getParameter("year_from").isEmpty()) {
+		if(request.getParameter("year_from") != null && !request.getParameter("year_from").isEmpty()) {
 			data.put("year_from", request.getParameter("year_from"));
 		}
-		if(!request.getParameter("year_to").isEmpty()) {
+		if(request.getParameter("year_to") != null && !request.getParameter("year_to").isEmpty()) {
 			data.put("year_to", request.getParameter("year_to"));
 		}
-		if(!request.getParameter("gearbox").isEmpty()) {
-			data.put("gearbox", request.getParameter("gearbox"));
+		if(request.getParameter("gearbox") != null && !request.getParameter("gearbox").isEmpty()) {
+			String s = request.getParameter("gearbox");
+			if (s.equals("1")) {
+				data.put("gearbox","მექანიკური");
+			}else if (s.equals("2")) {
+				data.put("gearbox","ავტომატიკა");
+			}else if (s.equals("3")) {
+				data.put("gearbox","ტიპტრონიკი");
+			}
 		}
-		if(!request.getParameter("ganbajebuli").isEmpty()) {
+		if(request.getParameter("ganbajebuli") != null && !request.getParameter("ganbajebuli").isEmpty()) {
 			data.put("ganbajebuli", request.getParameter("ganbajebuli"));
 		}
-		if(!request.getParameter("carmodel_id").isEmpty()) {
+		if(request.getParameter("carmodel_id") != null && !request.getParameter("carmodel_id").isEmpty()) {
 			data.put("carmodel_id", request.getParameter("carmodel_id"));
 		}
-		if(!request.getParameter("price_from").isEmpty()) {
+		if(request.getParameter("price_from") != null && !request.getParameter("price_from").isEmpty()) {
 			try {
 				Integer.parseInt(request.getParameter("price_from"));
 				data.put("price_from", request.getParameter("price_from"));
 			}catch (Exception e){
 			}
 		}
-		if(!request.getParameter("price_to").isEmpty()) {
+		if(request.getParameter("price_to") != null && !request.getParameter("price_to").isEmpty()) {
 			try {
 				Integer.parseInt(request.getParameter("price_to"));
 				data.put("price_to", request.getParameter("price_to"));
 			}catch (Exception e){
 			}
 		}
-		if(!request.getParameter("rightsteeringwheel").isEmpty()) {
+		if(request.getParameter("rightsteeringwheel") != null && !request.getParameter("rightsteeringwheel").isEmpty()) {
 			data.put("rightsteeringwheel", request.getParameter("rightsteeringwheel"));
 		}
-		if(!request.getParameter("fuel").isEmpty()) {
-			data.put("fuel", request.getParameter("fuel"));
+		if(request.getParameter("fuel") != null && !request.getParameter("fuel").isEmpty()) {
+			String s = request.getParameter("fuel");
+			if (s.equals("1")) {
+				data.put("fuel", "ელექტრო");
+			}else if (s.equals("2")) {
+				data.put("fuel", "ბენზინი");
+			}else if (s.equals("3")) {
+				data.put("fuel", "დიზელი");
+			}
 		}
-		if(!request.getParameter("category_id").isEmpty()) {
+		if(request.getParameter("category_id") != null && !request.getParameter("category_id").isEmpty()) {
 			data.put("category_id", request.getParameter("category_id"));
 		}
-		if(!request.getParameter("location_id").isEmpty()) {
+		if(request.getParameter("location_id") != null && !request.getParameter("location_id").isEmpty()) {
 			data.put("location_id", request.getParameter("location_id"));
 		}
-		if(!request.getParameter("last_days").isEmpty()) {
+		if(request.getParameter("last_days") != null && !request.getParameter("last_days").isEmpty()) {
 			data.put("last_days", request.getParameter("last_days"));
 		}
 		String page = PageNumber(request);

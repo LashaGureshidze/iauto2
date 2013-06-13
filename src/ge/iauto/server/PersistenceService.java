@@ -457,4 +457,16 @@ public class PersistenceService {
 		Query qr = entitymanager.createQuery("UPDATE Car c SET c.viewCount = (c.viewCount + 1) WHERE c.id = :id ").setParameter("id", id);
 		qr.executeUpdate();
 	}
+	
+	/**
+	 * წაშლის მანქანას გადმოცემული ID ის მიხედვით
+	 */
+	public void removeCar(long id) {
+		EntityManager entitymanager = PersistenceProvider.createEM();
+		Car car = entitymanager.find(Car.class, id);
+		entitymanager.getTransaction().begin();
+		entitymanager.remove(car);
+		entitymanager.getTransaction().commit();
+		entitymanager.close();
+	}
 }

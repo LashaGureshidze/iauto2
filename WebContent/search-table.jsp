@@ -217,9 +217,9 @@
 					</span> <span class="sigane" style="text-align: right;">
 					 <select id="fuel" name="fuel" class="seleqtebi">
 							<option value="">საწვავის ტიპი</option>
-							<option value="0">ელექტრო</option>
-							<option value="1">ბენზინი</option>
-							<option value="2">დიზელი</option>
+							<option value="1">ელექტრო</option>
+							<option value="2">ბენზინი</option>
+							<option value="3">დიზელი</option>
 					</select>
 					</span> 
 					<span class="sigane" style="text-align: right;"> <span>მარჯვენა
