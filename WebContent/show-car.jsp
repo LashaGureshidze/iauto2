@@ -45,10 +45,11 @@
 								<tr>
 									<td width="640px" height="480px" align="left" valign="top">&nbsp;
 										<div style="cursor: pointer; margin-top: -18px; background-image: url(ImageServlet?id=<%=c.getId()%>&photoId=photo1);
-											 background-size: 100%; width: 640px; height: 480px; border: 1px solid rgb(204, 204, 204); 
+											 background-size: 100% ; width: 640px; height: 480px; border: 1px solid rgb(204, 204, 204); 
 											 background-color: rgb(190, 190, 190); background-position: initial initial;
 											 background-repeat: initial initial;"
-											 id="big_photo"></div>
+											 id="big_photo">
+										</div>
 									</td>
 								</tr>
 							</tbody>

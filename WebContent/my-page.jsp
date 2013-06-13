@@ -7,51 +7,65 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>ჩემი გვერდი</title>
 <style>
-.center {
-	margin: auto;
-	width: 700px;
+.aStyle tr{
+	height: 25px;
 }
-.aStyle2 {
-	color: rgb(140, 140, 140);
-	font-weight: bold;
-	font-size: 13px;
-	text-decoration: none;
+
+.aStyle tr td {	
+	list-style: none;
+	display: inline;
 }
-.aStyle2:HOVER {
-	color: #3399FF;
-	font-weight: bold;
-	font-size: 13px;
+
+.aStyle tr td a {
+	padding: 10px 25px 10px 25px;
 	text-decoration: none;
+	float: left;
+	color: blue;
+	background-color: rgb(200, 200, 200);
+	border: 0px solid rgb(10, 10, 15);
+	border-radius: 2px;
+}
+
+.aStyle tr td a:hover {
+	background-color: white;
+	color: black;
 }
 </style>
 </head>
 <body>
 	<%long userId = ((User)request.getSession().getAttribute("user")).getId();%>
-	<%@include file="menu-bar.jsp"%>
-	<div class="center">
-		<table>
-			<tr align="center">
-				<td height="25px">
-					<div style="background-repeat: no-repeat; background-image: url(clear_bg.png); background-size: 700px 25px; height: 25px; width: 700px;">
-						<a style="font-weight: bold; font-size: 13px; text-decoration: none; color: #ffffff;"
-						href="my-page.jsp">ჩემი გვერდი</a>
-					</div>
-				</td>
-			</tr>
-		</table>
-	</div>
-	<div class="center"
-		style="font-family: verdana; padding: 5px; border-radius: 3px; border: 2px solid #D8D8D8; box-shadow: 4px 4px 21px -4px #858585;">
-		<table>
-			<tr align="center">
-				<td width="25%" valign="top" align="left"><a
-					class="aStyle2" href="add-car.jsp">განცხადების დამატება</a> <br> <a
-					class="aStyle2" href="MyCarsServlet?id=<%=userId%>">ჩემი განცხადებები</a> <br> <a
-					class="aStyle2" href="profile-parameters.jsp">ანგარიშის რედაქტირება</a> <br> <a
-					class="aStyle2" href="profile-parameters.jsp">პაროლის შეცვლა</a> <br> <a
-					class="aStyle2" href="LogoutServlet">გასვლა</a><br></td>
-			</tr>
-		</table>
-	</div>
+	<table style="margin: auto;">
+		<tr>
+			<td>
+				<%@include file="menu-bar.jsp"%>
+			</td>
+		</tr>
+		<tr>
+			<td align="left">
+				<table>
+					<tr align="center">
+						<td >
+							<a style="font-weight: bold; font-size: 23px; text-decoration: none; color: blue;" href="my-page.jsp">ჩემი გვერდი</a>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>	
+		<tr>
+			<td align="left">	
+				<table class="aStyle">
+					<tr>
+						<td><a href="add-car.jsp">განცხადების დამატება</a></td>
+					</tr>
+					<tr>		
+						<td><a href="MyCarsServlet?id=<%=userId%>">ჩემი განცხადებები</a></td>
+					</tr>
+					<tr>	
+						<td><a href="profile-parameters.jsp">ანგარიშის რედაქტირება</a></td>
+					</tr>
+				</table>
+			</td>
+		</tr>	
+	</table>
 </body>
 </html>
