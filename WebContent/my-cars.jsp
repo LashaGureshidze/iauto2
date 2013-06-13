@@ -41,10 +41,10 @@
 				<div style="background-image: url(top-line.jpg); background-size: 100%; height: 5px; width: 600px;"></div>
 				<table height="110px" width="600px" bgcolor="#F8F8F8">
 					<tr>
-						<td width="21%">
+						<td width="5%">
 							<a href="ShowCar?id=<%=c.getId()%>"><img src="ImageServlet?id=<%=c.getId()%>&photoId=photo1" height="96" width="128" border="0"></a>		
 						</td>
-						<td width="79%">
+						<td width="95%">
 							<table width="100%" style="font-size: 10pt;">
 								<tr>
 									<td>
@@ -62,11 +62,17 @@
 										<%=c.getKilometer() + ", " + c.getLocation().getName()%>
 									</td>
 								</tr>
-								<tr>
+								  <tr>
 									<td align="right">
-										<a class="readMore" href="ShowCar?id=<%=c.getId()%>">სრულად ნახვა<img alt="read-more" src="read-more.png" width="14px" height="14px" border="0px"></a>
+										<a class="readMore" href="ShowCar?id=<%=c.getId()%>">სრულიად ნახვა  <img alt="read-more" src="read-more.png" width="14px" height="14px" border="0px"></a>
 									</td>
-								</tr>
+									<td align="right">
+										<a class="readMore" href="EditCarServlet?id=<%=c.getId()%>"><img alt="read-more" src="edit.png" width="16px" height="16px" border="0px"></a>
+									</td>
+									<td align="right">
+										<a class="readMore" href="DeleteCarServlet?id=<%=c.getId()%>"><img alt="read-more" src="delete.png" width="16px" height="16px" border="0px"></a>
+									</td>
+									</tr>
 							</table>
 						</td>
 					</tr>
