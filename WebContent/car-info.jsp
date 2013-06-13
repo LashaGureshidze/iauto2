@@ -103,7 +103,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td align="center">
+				<td align="left">
 					<p><%=car.getDescribtion()%></p>
 				</td>
 			</tr>

@@ -45,7 +45,7 @@
 								<tr>
 									<td width="640px" height="480px" align="left" valign="top">&nbsp;
 										<div style="cursor: pointer; margin-top: -18px; background-image: url(ImageServlet?id=<%=c.getId()%>&photoId=photo1);
-											 width: 640px; height: 480px; border: 1px solid rgb(204, 204, 204); 
+											 background-size: 100%; width: 640px; height: 480px; border: 1px solid rgb(204, 204, 204); 
 											 background-color: rgb(190, 190, 190); background-position: initial initial;
 											 background-repeat: initial initial;"
 											 id="big_photo"></div>
@@ -55,34 +55,58 @@
 						</table>
 					</td>
 					<td align="center" width="500" height="500px">
-						<div id="photosDiv"
+						<div
 							style="margin-top: -8px; margin-left: -2px; padding: 5px; z-index: 9999; overflow: hidden; height: 455px; position: absolute;">
 							<table height="500px" width="100%" border="0" cellpadding="0" cellspacing="0">
 								<tbody>
+									<%
+									if (c.getPhoto1()!=null) {
+									%>
 									<tr><td>
 										<img src="ImageServlet?id=<%=c.getId()%>&photoId=photo1" height="96" width="128" border="0" onmouseover="changeImage('1');">
 										<br>
 									</td></tr>
+									<%}%>
+									<%
+									if (c.getPhoto2()!=null) {
+									%>
 									<tr><td>
 										<img src="ImageServlet?id=<%=c.getId()%>&photoId=photo2" height="96" width="128" border="0" onmouseover="changeImage('2');">
 										<br>
 									</td></tr>
+									<%}%>
+									<%
+									if (c.getPhoto3()!=null) {
+									%>
 									<tr><td>
 										<img src="ImageServlet?id=<%=c.getId()%>&photoId=photo3" height="96" width="128" border="0" onmouseover="changeImage('3');">
 										<br>
 									</td></tr>
+									<%}%>
+									<%
+									if (c.getPhoto4()!=null) {
+									%>
 									<tr><td>
 										<img src="ImageServlet?id=<%=c.getId()%>&photoId=photo4" height="96" width="128" border="0" onmouseover="changeImage('4');">
 										<br>
 									</td></tr>
+									<%}%>
+									<%
+									if (c.getPhoto5()!=null) {
+									%>
 									<tr><td>
 										<img src="ImageServlet?id=<%=c.getId()%>&photoId=photo5" height="96" width="128" border="0" onmouseover="changeImage('5');">
 										<br>
 									</td></tr>
+									<%}%>
+									<%
+									if (c.getPhoto6()!=null) {
+									%>
 									<tr><td>
 										<img src="ImageServlet?id=<%=c.getId()%>&photoId=photo6" height="96" width="128" border="0" onmouseover="changeImage('6');">
 										<br>
 									</td></tr>
+									<%}%>
 									<tr>
 										<td width="100%" align="left"></td>
 									</tr>
