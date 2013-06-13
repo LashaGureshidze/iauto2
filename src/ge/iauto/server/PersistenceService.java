@@ -406,4 +406,13 @@ public class PersistenceService {
 		entitymanager.close();
 	}
 	
+	/**
+	 * დააბრუნებს მანქანების სიას, რომელების არიან მიბმული გადმოცემულ მომხმარებელზე
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Car> LoadCarsByUser(long userId) {
+		EntityManager entitymanager = PersistenceProvider.createEM();
+		Query qr = entitymanager.createQuery("FROM Car c WHERE c.user.id =:userId").setParameter("userId", userId);
+		return qr.getResultList();
+	}
 }
