@@ -145,20 +145,19 @@ function isNumber(e) {
 		<table width="800px" cellspacing="3px" border="0px">
 			<tr>
 				<td align=right>კატეგორია<font color="red">*</font>:</td>
-				<td align=left><select class="box" name=category_id onchange="checkStarFields()"
-					id=category_id>
-						<option value="">აირჩიეთ კატეგორია</option>
-						<%
-							@SuppressWarnings("unchecked")
-							List<Category> categeory = (List<Category>) request.getServletContext().getAttribute("categories");
-							Iterator<Category> it = categeory.iterator();
-							while (it.hasNext()) {
-								Category tmp = it.next();
-						%>
-						<option value=<%=tmp.getId()%>><%=tmp.getName()%></option>
-						<%
-							}
-						%>
+				<td align=left><select class="box" name=category_id onchange="checkStarFields()" id=category_id>
+					<option value="">აირჩიეთ კატეგორია</option>
+					<%
+						@SuppressWarnings("unchecked")
+						List<Category> categeory = (List<Category>) request.getServletContext().getAttribute("categories");
+						Iterator<Category> it = categeory.iterator();
+						while (it.hasNext()) {
+							Category tmp = it.next();
+					%>
+					<option value=<%=tmp.getId()%>><%=tmp.getName()%></option>
+					<%
+						}
+					%>
 				</select> 
 			</tr>
 			<tr>
@@ -459,7 +458,6 @@ function isNumber(e) {
 				<td align="center"><br> <input id="adding" type="submit"
 					value="დამატება" disabled="disabled"/></td>
 			</tr>
-
 		</table>
 	</form>
 	</fieldset>

@@ -41,6 +41,7 @@ public class AddCar extends HttpServlet {
 	 */
 	@SuppressWarnings("unchecked")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		if(request.getSession().getAttribute("user") == null){
 			request.getRequestDispatcher("log-in.jsp").forward(request, response);
 		}else{
