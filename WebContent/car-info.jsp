@@ -21,7 +21,7 @@
 <%!
 	double count(Car car) {
 		int year = car.getYear();
-		double motor = car.getEngine();
+		double motor = car.getEngine() * 1000;
 		double aqcis;
 		switch (2013 - year) {
 		case 0: case 1:
@@ -74,47 +74,69 @@
 </style>
 
 <body>
-	<table style="margin-top: 20px;" cellspacing="0" cellpadding="0">
-		<tbody>
-			<tr>
-				<td width="70px">
-					<%
-						out.print("<font color='#FF0000' size='+2'>" + car.getPrice() + car.getCurrency() + "</font>   ");
-						if (car.isGanbajebuli()) out.print("განბაჟებული");
-						else {
-							out.print("+ განბაჟება: " + "<font color='#FF0000' size='+1'>" + (int)count((Car)request.getAttribute("carToShow")) + "$</font>");
-						}
-					%>
-				</td>
-			</tr>
-			<tr height="1">
-				<td>
-					<hr style="width: 1000px; margin-left: 15px; border: none; background-color: rgb(0, 128, 255); height: 1px;">
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<%=car.getUsername() + " " + car.getTelephone() %>
-				</td>
-			</tr>
-			<tr height="1">
-				<td>
-					<hr style="width: 1000px; margin-left: 15px; border: none; background-color: rgb(0, 128, 255); height: 1px;">
-				</td>
-			</tr>
-			<tr>
-				<td align="left">
-					<p><%=car.getDescribtion()%></p>
-				</td>
-			</tr>
-			<tr height="1">
-				<td>
-					<hr style="width: 1000px; margin-left: 15px; border: none; background-color: rgb(0, 128, 255); height: 1px;">
-				</td>
-			</tr>
-		</tbody>
+	<table style="margin-top: 20px; width: 800px;">
+		<tr>
+			<td>
+				<table width="70%">
+					<tr>
+						<td width="50%">
+							<img alt="view" src="view.png">
+							<%
+								out.print("ნანახია " + car.getViewCount() + "-ჯერ");
+							%>
+						</td>
+						<td width="50%">
+							<img alt="location" src="location.png">&nbsp;
+							<%
+								out.print("მდებარეობა: " + car.getLocation().getName());
+							%>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<%
+					out.print("<font color='#FF0000' size='+2'>" + car.getPrice() + car.getCurrency() + "</font>   ");
+					if (car.isGanbajebuli()) out.print("განბაჟებული");
+					else {
+						out.print("+ განბაჟება: " + "<font color='#FF0000' size='+1'>" + (int)count((Car)request.getAttribute("carToShow")) + " ლარი</font>");
+					}
+				%>
+			</td>
+		</tr>
+		<tr height="1">
+			<td>
+				<hr style="width: 770px; margin-left: 15px; border: none; background-color: rgb(0, 128, 255); height: 1px;">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<%
+					String st = car.getUsername() + " " + car.getTelephone();
+					if (st == null || st.equals(" ")) out.println("მომხმარებელს არ აქვს მითითებული საკონტაქტო ინფორმაცია!");
+					else out.println(st);
+				%>
+			</td>
+		</tr>
+		<tr height="1">
+			<td>
+				<hr style="width: 770px; margin-left: 15px; border: none; background-color: rgb(0, 128, 255); height: 1px;">
+			</td>
+		</tr>
+		<tr>
+			<td align="left">
+				<p><%=car.getDescribtion()%></p>
+			</td>
+		</tr>
+		<tr height="1">
+			<td>
+				<hr style="width: 770px; margin-left: 15px; border: none; background-color: rgb(0, 128, 255); height: 1px;">
+			</td>
+		</tr>
 	</table>
-	<table class="paramTable" style="margin-left: 0px;">
+	<table class="paramTable" style="margin-left: 0px; margin-top: 15px;">
 		<tr>
 			<td>
 				<table>
@@ -328,7 +350,7 @@
 							<% if(car.isWindow()){%>
 								 <img border="0" src="plus.gif">
 								<%}%>
-								<% if(!car.isAbs()) {%>
+								<% if(!car.isWindow()) {%>
 								<img border="0" src="minus.gif">
 							<%}%>
 						</td>
@@ -346,7 +368,7 @@
 							<% if(car.isConditioner()){%>
 								 <img border="0" src="plus.gif">
 								<%}%>
-								<% if(!car.isAbs()) {%>
+								<% if(!car.isConditioner()) {%>
 								<img border="0" src="minus.gif">
 							<%}%>
 						</td>
@@ -364,7 +386,7 @@
 							<% if(car.isClimat()){%>
 								 <img border="0" src="plus.gif">
 								<%}%>
-								<% if(!car.isAbs()) {%>
+								<% if(!car.isClimat()) {%>
 								<img border="0" src="minus.gif">
 							<%}%>
 						</td>
@@ -382,7 +404,7 @@
 							<% if(car.isLeather()){%>
 								 <img border="0" src="plus.gif">
 								<%}%>
-								<% if(!car.isAbs()) {%>
+								<% if(!car.isLeather()) {%>
 								<img border="0" src="minus.gif">
 							<%}%>
 						</td>
@@ -400,7 +422,7 @@
 							<% if(car.isWheel()){%>
 								 <img border="0" src="plus.gif">
 								<%}%>
-								<% if(!car.isAbs()) {%>
+								<% if(!car.isWheel()) {%>
 								<img border="0" src="minus.gif">
 							<%}%>
 						</td>
@@ -418,7 +440,7 @@
 							<% if(car.isNavigation()){%>
 								 <img border="0" src="plus.gif">
 								<%}%>
-								<% if(!car.isAbs()) {%>
+								<% if(!car.isNavigation()) {%>
 								<img border="0" src="minus.gif">
 							<%}%>
 						</td>
@@ -436,7 +458,7 @@
 							<% if(car.isCentrallock()){%>
 								 <img border="0" src="plus.gif">
 								<%}%>
-								<% if(!car.isAbs()) {%>
+								<% if(!car.isCentrallock()) {%>
 								<img border="0" src="minus.gif">
 							<%}%>
 						</td>
@@ -454,7 +476,7 @@
 							<% if(car.isTopwindow()){%>
 								 <img border="0" src="plus.gif">
 								<%}%>
-								<% if(!car.isAbs()) {%>
+								<% if(!car.isTopwindow()) {%>
 								<img border="0" src="minus.gif">
 							<%}%>
 						</td>
@@ -472,7 +494,7 @@
 							<% if(car.isSequrity()){%>
 								 <img border="0" src="plus.gif">
 								<%}%>
-								<% if(!car.isAbs()) {%>
+								<% if(!car.isSequrity()) {%>
 								<img border="0" src="minus.gif">
 							<%}%>
 						</td>
@@ -490,7 +512,7 @@
 							<% if(car.isComputer()){%>
 								 <img border="0" src="plus.gif">
 								<%}%>
-								<% if(!car.isAbs()) {%>
+								<% if(!car.isComputer()) {%>
 								<img border="0" src="minus.gif">
 							<%}%>
 						</td>
@@ -508,7 +530,7 @@
 							<% if(car.isHydraulics()){%>
 								 <img border="0" src="plus.gif">
 								<%}%>
-								<% if(!car.isAbs()) {%>
+								<% if(!car.isHydraulics()) {%>
 								<img border="0" src="minus.gif">
 							<%}%>
 						</td>
@@ -526,7 +548,7 @@
 							<% if(car.isParkcontrol()){%>
 								 <img border="0" src="plus.gif">
 								<%}%>
-								<% if(!car.isAbs()) {%>
+								<% if(!car.isParkcontrol()) {%>
 								<img border="0" src="minus.gif">
 							<%}%>
 						</td>
@@ -544,7 +566,7 @@
 							<% if(car.isTurbo()){%>
 								 <img border="0" src="plus.gif">
 								<%}%>
-								<% if(!car.isAbs()) {%>
+								<% if(!car.isTurbo()) {%>
 								<img border="0" src="minus.gif">
 							<%}%>
 						</td>
@@ -553,5 +575,6 @@
 			</td>
 		</tr>
 	</table>
+	<hr style="height: 75px; border: 0px;">
 </body>
 </html>

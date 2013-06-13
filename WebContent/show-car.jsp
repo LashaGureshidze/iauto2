@@ -47,7 +47,7 @@
 										<div style="cursor: pointer; margin-top: -18px; background-image: url(ImageServlet?id=<%=c.getId()%>&photoId=photo1);
 											 background-size: 100% ; width: 640px; height: 480px; border: 1px solid rgb(204, 204, 204); 
 											 background-color: rgb(190, 190, 190); background-position: initial initial;
-											 background-repeat: no-repeat"
+											 background-repeat: no-repeat;"
 											 id="big_photo">
 										</div>
 									</td>
@@ -55,10 +55,10 @@
 							</tbody>
 						</table>
 					</td>
-					<td align="center" width="500" height="500px">
+					<td align="center" width="500" height="480px">
 						<div
 							style="margin-top: -8px; margin-left: -2px; padding: 5px; z-index: 9999; overflow: hidden; height: 455px; position: absolute;">
-							<table height="500px" width="100%" border="0" cellpadding="0" cellspacing="0">
+							<table height="480px" width="100%" border="0" cellpadding="0" cellspacing="0">
 								<tbody>
 									<%
 									if (c.getPhoto1()!=null) {
