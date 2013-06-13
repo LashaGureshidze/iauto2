@@ -22,6 +22,27 @@ public class SearchServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		boolean valid = true;
+		if(request.getParameter("carmake_id") == null)valid=false;
+		if(request.getParameter("year_from") == null)valid=false;
+		if(request.getParameter("year_to") == null)valid=false;
+		if(request.getParameter("gearbox") == null)valid=false;
+		if(request.getParameter("ganbajebuli") == null)valid=false;
+		if(request.getParameter("carmodel_id") == null)valid=false;
+		if(request.getParameter("rightsteeringwheel") == null)valid=false;
+		if(request.getParameter("fuel") == null)valid=false;
+		if(request.getParameter("category_id") == null)valid=false;
+		if(request.getParameter("location_id") == null)valid=false;
+		if(request.getParameter("last_days") == null)valid=false;
+		if(request.getParameter("page") != null){
+			if(request.getParameter("page").length() > 10){
+				valid=false;
+			}
+		}
+		if(!valid){
+			request.getRequestDispatcher("home-page.jsp").forward(request, response);
+			return;
+		}
 		SearchData data = new SearchData();
 		if(!request.getParameter("carmake_id").isEmpty()) {
 			data.put("carmake_id", request.getParameter("carmake_id"));
@@ -89,7 +110,7 @@ public class SearchServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		doPost(request, response);
 	}
 
 }

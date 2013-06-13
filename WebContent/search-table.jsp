@@ -281,7 +281,8 @@
 
 							<option value="1m">ბოლო 1 თვე</option>
 					</select>
-					</span> <span class="sigane">
+					</span> 
+					<span class="sigane">
 						<button class="dzebna">ძებნა</button>
 					</span>
 				</div>
