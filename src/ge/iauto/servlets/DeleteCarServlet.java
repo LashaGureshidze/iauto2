@@ -38,8 +38,8 @@ public class DeleteCarServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		PersistenceService service = (PersistenceService) request.getServletContext().getAttribute("persistenceService");
-		service.removeCar(Long.parseLong(request.getParameter("id"));
-		request.getRequestDispatcher("MyCarsServlet");
+		service.removeCar(Long.parseLong(request.getParameter("id")));
+		request.getRequestDispatcher("MyCarsServlet").forward(request, response);
 	}
 
 }
