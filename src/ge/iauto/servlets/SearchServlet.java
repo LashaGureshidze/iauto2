@@ -67,6 +67,9 @@ public class SearchServlet extends HttpServlet {
 		if(!request.getParameter("location_id").isEmpty()) {
 			data.put("location_id", request.getParameter("location_id"));
 		}
+		if(!request.getParameter("last_days").isEmpty()) {
+			data.put("last_days", request.getParameter("last_days"));
+		}
 		String page = PageNumber(request);
 		PersistenceService service = (PersistenceService) request.getServletContext().getAttribute("persistenceService");
 		List<Car> result = service.loadCars(data, (Integer.parseInt(page)-1)*10, 11);	//აქ გადაეცემა შესაბამისად რომელი ინდეხიდან გინდა, და რამდენი გინდა

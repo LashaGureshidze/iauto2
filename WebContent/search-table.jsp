@@ -264,22 +264,22 @@
 							}
 							%>
 					</select>
-					</span> <span class="sigane"> <select class="seleqtebi"
-						id="last_days" name="last_days">
-							<option value="all">განცხადებები</option>
-							<option value="1">ბოლო 1 საათი</option>
-							<option value="2">ბოლო 2 საათი</option>
-							<option value="3">ბოლო 3 საათი</option>
+					</span> <span class="sigane"> 
+					<select class="seleqtebi" 	id="last_days" name="last_days">
+							<option value="">განცხადებები</option>
+							<option value="1h">ბოლო 1 საათი</option>
+							<option value="2h">ბოლო 2 საათი</option>
+							<option value="3h">ბოლო 3 საათი</option>
 
-							<option value="4">ბოლო 1 დღე</option>
-							<option value="5">ბოლო 2 დღე</option>
-							<option value="6">ბოლო 3 დღე</option>
+							<option value="1d">ბოლო 1 დღე</option>
+							<option value="2d">ბოლო 2 დღე</option>
+							<option value="3d">ბოლო 3 დღე</option>
 
-							<option value="7">ბოლო 1 კვირა</option>
-							<option value="14">ბოლო 2 კვირა</option>
-							<option value="21">ბოლო 3 კვირა</option>
+							<option value="1w">ბოლო 1 კვირა</option>
+							<option value="2w">ბოლო 2 კვირა</option>
+							<option value="3w">ბოლო 3 კვირა</option>
 
-							<option value="31">ბოლო 1 თვე</option>
+							<option value="1m">ბოლო 1 თვე</option>
 					</select>
 					</span> <span class="sigane">
 						<button class="dzebna">ძებნა</button>

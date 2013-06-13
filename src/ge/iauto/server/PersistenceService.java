@@ -8,6 +8,7 @@ import ge.iauto.server.model.Location;
 import ge.iauto.server.model.SearchData;
 import ge.iauto.server.model.User;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -246,7 +247,7 @@ public class PersistenceService {
  * @param maxResult - მანქანების მაქსიმალური რაოდენობა, რაც ერთ ჯერზე შეიძლება დაბრუნდეს
  * @return  - მოზებნილი მანქანების კოლექცია
  */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "deprecation" })
 	public List<Car> loadCars(SearchData data,int firsResult, int maxResult) {
 		Map<String,Object> parameters = new HashMap<String, Object>();
 		StringBuilder ql = new StringBuilder();
@@ -313,6 +314,38 @@ public class PersistenceService {
 			ql.append("AND c.location.id =:location_id ");
 			parameters.put("location_id", Long.parseLong(data.get("location_id")));
 		}
+		s = data.get("last_days");
+		if (s != null) {
+			Date date = new Date();
+			Calendar cal = Calendar.getInstance();  
+			cal.setTime(date);  
+			if (s.equals("1h")) {
+				cal.set(Calendar.HOUR_OF_DAY, date.getHours() - 1);  
+			}else if (s.equals("2h")) {
+				cal.set(Calendar.HOUR_OF_DAY, date.getHours() - 2);  
+			}else if (s.equals("3h")) {
+				cal.set(Calendar.HOUR_OF_DAY, date.getHours() - 3);  
+			}else if (s.equals("1d")) {
+				cal.set(Calendar.DAY_OF_MONTH, date.getDate() - 1);  
+			}else if (s.equals("2d")) {
+				cal.set(Calendar.DAY_OF_MONTH, date.getDate() - 2);  
+			}else if (s.equals("3d")) {
+				cal.set(Calendar.DAY_OF_MONTH, date.getDate() - 3);  
+			}else if (s.equals("1w")) {
+				cal.set(Calendar.DAY_OF_MONTH, date.getDate() - 7);  
+			}else if (s.equals("2w")) {
+				cal.set(Calendar.DAY_OF_MONTH, date.getDate() - 14);  
+			}else if (s.equals("3w")) {
+				cal.set(Calendar.DAY_OF_MONTH, date.getDate() - 21);  
+			}else {
+				cal.set(Calendar.MONTH, date.getMonth() - 1);  
+			}
+			date = cal.getTime(); 
+			
+			ql.append("AND c.uploaddate > :time ");
+			parameters.put("time", date);
+		}
+		
 		EntityManager entitymanager = PersistenceProvider.createEM();
 		Query qr = entitymanager.createQuery(ql.toString());
 		qr.setFirstResult(firsResult);
