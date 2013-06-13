@@ -120,7 +120,7 @@
 						</tr>
 					<%}%>
 					</table>
-					<table align="center">
+					<table style="margin-top: 20px;" align="center">
 						<tr class="table">
 							<%
 							String Page = request.getParameter("page");
