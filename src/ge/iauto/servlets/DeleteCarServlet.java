@@ -39,6 +39,7 @@ public class DeleteCarServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		PersistenceService service = (PersistenceService) request.getServletContext().getAttribute("persistenceService");
 		service.removeCar(Long.parseLong(request.getParameter("id"));
+		request.getRequestDispatcher("MyCarsServlet");
 	}
 
 }
