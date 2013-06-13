@@ -1,120 +1,19 @@
-<%@page import="ge.iauto.server.model.Car"%>
-<%@page import="ge.iauto.server.model.CarModel"%>
-<%@page import="ge.iauto.server.model.CarMake"%>
-<%@page import="ge.iauto.server.model.Category"%>
-<%@page import="ge.iauto.server.model.Location"%>
-<%@page import="ge.iauto.server.model.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="ge.iauto.server.model.Car"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>IAUTO.ge</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
 </head>
 
 <%
 	Car car = (Car)request.getAttribute("carToShow");
 %>
 
-<%!
-	double count(Car car) {
-		int year = car.getYear();
-		double motor = car.getEngine();
-		double aqcis;
-		switch (2013 - year) {
-		case 0: case 1:
-			aqcis = 1.5 * motor;
-			break;
-		case 2:
-			aqcis = 1.4 * motor;
-			break;
-		case 3:
-			aqcis = 1.3 * motor;
-			break;
-		case 4:
-			aqcis = 1.2 * motor;
-			break;
-		case 5:
-			aqcis = 1.0 * motor;
-			break;
-		case 6:
-			aqcis = 0.7 * motor;
-			break;
-		case 7: case 8: case 9: case 10: case 11: case 12:
-			aqcis = 0.5 * motor;
-			break;
-		case 13:
-			aqcis = 0.6 * motor;
-			break;
-		case 14:
-			aqcis = 0.7 * motor;
-		default:
-			aqcis = 0.8 * motor;
-			break;
-		}
-	
-		double importi = (motor / 100 * 0.05) + (year * (motor / 100) * 0.0025);
-	
-		double sum = aqcis + importi + 72 + 31 + 150;
-		return sum;
-	}
-%>
-
-<style>
-.paramTable {
-	background-color: white;
-	border: 2px solid #D8D8D8;
-	box-shadow: 4px 4px 21px -4px #858585;
-	text-shadow: rgba(180, 78, 78, 0.22) 0.1em 0.1em 0.2em;
-	font-weight: normal;
-	margin: auto;
-}
-</style>
-
 <body>
-	<table style="margin-top: 20px;" cellspacing="0" cellpadding="0">
-		<tbody>
-			<tr>
-				<td width="70px">
-					<%
-						out.print("<font color='#FF0000' size='+2'>" + car.getPrice() + car.getCurrency() + "</font>   ");
-						if (car.isGanbajebuli()) out.print("განბაჟებული");
-						else {
-							out.print("+ განბაჟება: " + "<font color='#FF0000' size='+1'>" + (int)count((Car)request.getAttribute("carToShow")) + "$</font>");
-						}
-					%>
-				</td>
-			</tr>
-			<tr height="1">
-				<td>
-					<hr style="width: 1000px; margin-left: 15px; border: none; background-color: rgb(0, 128, 255); height: 1px;">
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<%=car.getUsername() + " " + car.getTelephone() %>
-				</td>
-			</tr>
-			<tr height="1">
-				<td>
-					<hr style="width: 1000px; margin-left: 15px; border: none; background-color: rgb(0, 128, 255); height: 1px;">
-				</td>
-			</tr>
-			<tr>
-				<td align="center">
-					<p><%=car.getDescribtion()%></p>
-				</td>
-			</tr>
-			<tr height="1">
-				<td>
-					<hr style="width: 1000px; margin-left: 15px; border: none; background-color: rgb(0, 128, 255); height: 1px;">
-				</td>
-			</tr>
-		</tbody>
-	</table>
-	<table class="paramTable" style="margin-left: 0px;">
+	<table>
 		<tr>
 			<td>
 				<table>
