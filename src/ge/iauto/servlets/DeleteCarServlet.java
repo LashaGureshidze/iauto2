@@ -1,5 +1,7 @@
 package ge.iauto.servlets;
 
+import ge.iauto.server.PersistenceService;
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,6 +29,7 @@ public class DeleteCarServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doPost(request, response);
 	}
 
 	/**
@@ -34,6 +37,8 @@ public class DeleteCarServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		PersistenceService service = (PersistenceService) request.getServletContext().getAttribute("persistenceService");
+		service.removeCar(Long.parseLong(request.getParameter("id"));
 	}
 
 }
