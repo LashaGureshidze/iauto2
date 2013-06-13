@@ -16,6 +16,7 @@
 
 <html>
 <head>
+<link href="images.jpg" rel="shortcut icon" type="image/x-icon" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>www.IAuto.ge - დამატება</title>
 
