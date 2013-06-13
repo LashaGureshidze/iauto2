@@ -1,11 +1,9 @@
 <%@page import="ge.iauto.server.model.Car"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link href="images.jpg" rel="shortcut icon" type="image/x-icon" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>www.IAuto.ge</title>
 
@@ -69,7 +67,7 @@
 		</tr>
 		<tr>
 			<td align="left">
-				<fieldset style="margin-top: 10px; width: 600px; border: 0px;">
+				<fieldset style="margin: 10px auto; width: 800px; border: 0px;">
 					<table class="mainTable">
 						<%
 						@SuppressWarnings("unchecked")
@@ -82,10 +80,10 @@
 								<div style="background-image: url(top-line.jpg); background-size: 100%; height: 5px; width: 600px;"></div>
 								<table height="110px" width="600px" bgcolor="#F8F8F8">
 									<tr>
-										<td width="21%">
+										<td width="5%">
 											<a href="ShowCar?id=<%=c.getId()%>"><img src="ImageServlet?id=<%=c.getId()%>&photoId=photo1" height="96" width="128" border="0"></a>		
 										</td>
-										<td width="79%">
+										<td width="95%">
 											<table width="100%" style="font-size: 10pt;">
 												<tr>
 													<td>
@@ -103,11 +101,17 @@
 														<%=c.getKilometer() + ", " + c.getLocation().getName()%>
 													</td>
 												</tr>
-												<tr>
+												  <tr>
 													<td align="right">
-														<a class="readMore" href="ShowCar?id=<%=c.getId()%>">სრულად ნახვა<img alt="read-more" src="read-more.png" width="14px" height="14px" border="0px"></a>
+														<a class="readMore" href="ShowCar?id=<%=c.getId()%>">სრულიად ნახვა  <img alt="read-more" src="read-more.png" width="14px" height="14px" border="0px"></a>
 													</td>
-												</tr>
+													<td align="right">
+														<a class="readMore" href="EditCarServlet?id=<%=c.getId()%>"><img alt="read-more" src="edit.png" width="16px" height="16px" border="0px"></a>
+													</td>
+													<td align="right">
+														<a class="readMore" href="DeleteCarServlet?id=<%=c.getId()%>"><img alt="read-more" src="delete.png" width="16px" height="16px" border="0px"></a>
+													</td>
+													</tr>
 											</table>
 										</td>
 									</tr>
@@ -116,33 +120,34 @@
 						</tr>
 					<%}%>
 					</table>
-					<table style="margin-top: 20px;" align="center" >
+					<table align="center">
 						<tr class="table">
 							<%
 							String Page = request.getParameter("page");
+							System.out.println("akane tru shemevida:  " + Page);
 							Integer prewPage = Integer.parseInt(Page)-1;
 							Integer nextPage = Integer.parseInt(Page)+1;
 							if(list.size() != 0){
 								if(prewPage<=0 && 11 > list.size()){
 								%>
-									<td><a>&lt; უკან</a></td>
-									<td><a>წინ &gt;</a></td>
+									<td><a>back</a></td>
+									<td><a>next</a></td>
 								<%}else if(prewPage<=0){%>
-									<td><a>&lt; უკან</a></td>
-									<td><a href="SearchServlet?page=<%=nextPage%>">წინ &gt;</a></td>
+									<td><a>back</a></td>
+									<td><a href="SearchServlet?page=<%=nextPage%>">next</a></td>
 								<%}else if(11 > list.size()){%>
-									<td><a href="SearchServlet?page=<%=prewPage%>"></a>&lt; უკან</td>
-									<td><a>წინ &gt;</a></td>
+									<td><a href="SearchServlet?page=<%=prewPage%>"></a>back</td>
+									<td><a>next</a></td>
 								<%}else{%>
-									<td><a id="prew" href="SearchServlet?page=<%=prewPage%>">&lt; უკან</a></td>
-									<td><a id="next" href="SearchServlet?page=<%=nextPage%>">წინ &gt;</a></td>			
+									<td><a id="prew" href="SearchServlet?page=<%=prewPage%>">back</a></td>
+									<td><a id="next" href="SearchServlet?page=<%=nextPage%>">next</a></td>			
 								<%}%>
-							<%}%>	
+							<%}%>
 						</tr>
 					</table>
 				</fieldset>
 			</td>
-		</tr>
+		</tr>		
 	</table>
 </body>
 </html>
