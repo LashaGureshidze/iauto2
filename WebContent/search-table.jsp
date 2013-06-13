@@ -190,9 +190,9 @@
 					<span class="sigane" style="text-align: right;">
 					 <select id="gearbox" name="gearbox" class="seleqtebi">
 							<option value="">ტრანსმისია</option>
-							<option value="მექანიკური">მექანიკური</option>
-							<option value="ავტომატიკა">ავტომატიკა</option>
-							<option value="ტიპტრონიკი">ტიპტრონიკი</option>
+							<option value="1">მექანიკური</option>
+							<option value="2">ავტომატიკა</option>
+							<option value="3">ტიპტრონიკი</option>
 					</select>
 					</span> 
 					<span class="sigane" style="text-align: right;"> <span>განბაჟებული
@@ -217,9 +217,9 @@
 					</span> <span class="sigane" style="text-align: right;">
 					 <select id="fuel" name="fuel" class="seleqtebi">
 							<option value="">საწვავის ტიპი</option>
-							<option value="ელექტრო">ელექტრო</option>
-							<option value="ბენზინი">ბენზინი</option>
-							<option value="დიზელი">დიზელი</option>
+							<option value="0">ელექტრო</option>
+							<option value="1">ბენზინი</option>
+							<option value="2">დიზელი</option>
 					</select>
 					</span> 
 					<span class="sigane" style="text-align: right;"> <span>მარჯვენა
