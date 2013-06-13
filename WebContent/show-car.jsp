@@ -47,7 +47,7 @@
 										<div style="cursor: pointer; margin-top: -18px; background-image: url(ImageServlet?id=<%=c.getId()%>&photoId=photo1);
 											 background-size: 100% ; width: 640px; height: 480px; border: 1px solid rgb(204, 204, 204); 
 											 background-color: rgb(190, 190, 190); background-position: initial initial;
-											 background-repeat: initial initial;"
+											 background-repeat: no-repeat"
 											 id="big_photo">
 										</div>
 									</td>
