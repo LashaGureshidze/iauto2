@@ -39,7 +39,7 @@ public class ShowCar extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		PersistenceService service = (PersistenceService) request.getServletContext().getAttribute("persistenceService");
-		request.setAttribute("carToShow", service.findCar(Long.parseLong(request.getParameter("id"))));
+		request.setAttribute("carsToShow", service.findCar(Long.parseLong(request.getParameter("id"))));
 		request.getRequestDispatcher("show-car.jsp").forward(request, response);
 	}
 }

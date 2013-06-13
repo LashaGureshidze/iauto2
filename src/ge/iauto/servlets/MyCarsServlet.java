@@ -28,8 +28,13 @@ public class MyCarsServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doPost(request, response);
+		String page = PageNumber(request);
+	//	request.getRequestDispatcher("show-search.jsp?page="+page).forward(request, response);
+		
+		PersistenceService service = (PersistenceService)request.getServletContext().getAttribute("persistenceService");
+		long id = Long.parseLong(request.getParameter("id"));
+		request.setAttribute("myCars", service.LoadCarsByUser(id));
+		request.getRequestDispatcher("my-cars.jsp?page="+page).forward(request, response);
 	}
 
 	/**
@@ -37,9 +42,17 @@ public class MyCarsServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		PersistenceService service = (PersistenceService) request.getServletContext().getAttribute("persistenceService");
-		request.setAttribute("myCars", null);
-		request.getRequestDispatcher("my-cars.jsp").forward(request, response);
+		
 	}
+	private String PageNumber(HttpServletRequest request) {
+		String number = request.getParameter("page");
+		if(number == null)return "1";
+		else{
+			int a = Integer.parseInt(number)+1;
+			number = ""+a;
+			return number;
+		}
+	}
+
 
 }
