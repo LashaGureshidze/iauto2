@@ -1,4 +1,3 @@
-<%@page import="com.sun.org.glassfish.gmbal.Description"%>
 <%@page import="ge.iauto.server.model.Car"%>
 <%@page import="ge.iauto.server.model.CarModel"%>
 <%@page import="ge.iauto.server.model.CarMake"%>

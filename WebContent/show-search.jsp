@@ -77,5 +77,27 @@
 	<%}%>
 	</table>
 	</fieldset>
+	<table align="center">
+		<tr>
+			<%
+			String Page = request.getParameter("page");
+			Integer prewPage = Integer.parseInt(Page)-1;
+			Integer nextPage = Integer.parseInt(Page)+1;
+			if(prewPage<=0 && 11 > list.size()){
+			%>
+				<td>back</td>
+				<td>next</td>
+			<%}else if(prewPage<=0){%>
+				<td>back</td>
+				<td><a href="SearchServlet?page=<%=nextPage%>">next</a></td>
+			<%}else if(11 > list.size()){%>
+				<td><a href="SearchServlet?page=<%=prewPage%>"></a>back</td>
+				<td>next</td>
+			<%}else{%>
+				<td><a id="prew" href="SearchServlet?page=<%=prewPage%>">back</a></td>
+				<td><a id="next" href="SearchServlet?page=<%=nextPage%>">next</a></td>			
+			<%}%>
+		</tr>
+	</table>
 </body>
 </html>

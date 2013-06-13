@@ -67,14 +67,24 @@ public class SearchServlet extends HttpServlet {
 		if(!request.getParameter("location_id").isEmpty()) {
 			data.put("location_id", request.getParameter("location_id"));
 		}
-		
+		String page = PageNumber(request);
 		PersistenceService service = (PersistenceService) request.getServletContext().getAttribute("persistenceService");
-		List<Car> result = service.loadCars(data, 0, 100);	//აქ გადაეცემა შესაბამისად რომელი ინდეხიდან გინდა, და რამდენი გინდა
+		List<Car> result = service.loadCars(data, (Integer.parseInt(page)-1)*10, 11);	//აქ გადაეცემა შესაბამისად რომელი ინდეხიდან გინდა, და რამდენი გინდა
 		request.setAttribute("list", result);
-		request.getRequestDispatcher("show-search.jsp").forward(request, response);
+		request.getRequestDispatcher("show-search.jsp?page="+page).forward(request, response);
 	}
 	
 	
+	private String PageNumber(HttpServletRequest request) {
+		String number = request.getParameter("page");
+		if(number == null)return "1";
+		else{
+			int a = Integer.parseInt(number)+1;
+			number = ""+a;
+			return number;
+		}
+	}
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	}
