@@ -400,6 +400,7 @@ public class PersistenceService {
 	 *განაახლებს მანქანას გადმოცემული ობიექტრის მიხედვით 
 	 */
 	public void updateCar(Car car){
+		System.out.println(car.getId());
 		EntityManager entitymanager = PersistenceProvider.createEM();
 		entitymanager.getTransaction().begin();
     	entitymanager.merge(car);

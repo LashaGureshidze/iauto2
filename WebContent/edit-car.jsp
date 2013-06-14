@@ -16,12 +16,13 @@
 </head>
 <body background="bg.png">
 	<%
-		Car update = (Car)request.getAttribute("carToUpdate");
-	
+	Car update = (Car)request.getAttribute("carToUpdate");
+	Car update1 = (Car)request.getAttribute("carToUpdate");
+	request.getSession().setAttribute("car", update1);
 	%>
 	<%@include file="menu-bar.jsp"%>
 	<fieldset class="fieldSet">
-		<form action=UpdateCar method="post" enctype="multipart/form-data" acceptcharset="UTF-8">
+		<form action=UpdateCar method="post">
 			<table width="800px" cellspacing="3px" border="0px">
 				<tr>
 					<td align=right>კატეგორია<font color="red">*</font>:</td>
@@ -167,7 +168,7 @@
 			<table cellspacing=10 border=0>
 				<tr>
 					<td align="center" id="addingParent"><br> <input id="adding" type="submit" name="add"
-						value="დამატება" disabled="disabled"/></td>
+						value="დამატება" /></td>
 				</tr>
 			</table>
 		</form>
