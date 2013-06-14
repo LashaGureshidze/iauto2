@@ -8,6 +8,7 @@
 	if (request.getHeader("referer") != null &&
 			!((String)request.getHeader("referer")).equals("http://localhost:8080/IAUTO/Verification"))
 		request.getRequestDispatcher("home-page.jsp").forward(request, response);
+	else{
 %>
 
 <html>
@@ -57,3 +58,4 @@ div.centerStyle {
 	</div>
 </body>
 </html>
+<%}%>

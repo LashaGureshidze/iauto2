@@ -2,11 +2,6 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<%
-	if (request.getSession().getAttribute("user") != null)
-		request.getRequestDispatcher("home-page.jsp").forward(request, response);
-%>
-
 <html>
 <head>
 <link href="images.jpg" rel="shortcut icon" type="image/x-icon" />

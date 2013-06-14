@@ -9,6 +9,7 @@
 			!((String)request.getHeader("referer")).equals("http://localhost:8080/IAUTO/RegisterServlet") &&
 			!((String)request.getHeader("referer")).equals("http://localhost:8080/IAUTO/user-register.jsp"))
 		request.getRequestDispatcher("home-page.jsp").forward(request, response);
+	else {
 %>
 
 <html>
@@ -59,3 +60,4 @@ div.centerStyle {
 	</div>
 </body>
 </html>
+<%}%>
