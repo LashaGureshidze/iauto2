@@ -33,7 +33,7 @@ public class EditCarServlet extends HttpServlet {
 		}else{
 			PersistenceService service = (PersistenceService) request.getServletContext().getAttribute("persistenceService");
 			request.setAttribute("carToUpdate", service.findCar(Long.parseLong(request.getParameter("id"))));
-			request.getRequestDispatcher("add-car.jsp").forward(request, response);
+			request.getRequestDispatcher("edit-car.jsp").forward(request, response);
 		}
 	}
 

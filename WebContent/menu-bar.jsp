@@ -51,10 +51,10 @@
 						<td><a  href="log-in.jsp">შესვლა</a></td>
 						<%
 							} else {
-								User user = (User) request.getSession().getAttribute("user");
-								String name = user.getUsername();
+								User user1 = (User) request.getSession().getAttribute("user");
+								String name1 = user1.getUsername();
 						%>
-						<td><a  href="/IAUTO/MyPageServlet"><%=name%> </a></td>
+						<td><a  href="/IAUTO/MyPageServlet"><%=name1%> </a></td>
 						<td><a  href="/IAUTO/LogoutServlet">გამოსვლა</a></td>
 						<%
 							}

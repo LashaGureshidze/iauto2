@@ -142,11 +142,7 @@ function isNumber(e) {
 
 <body>
 	<fieldset class="fieldSet">
-	<%
-	String servlet = "AddCar";
-	if(request.getAttribute("carToUpdate")!=null)servlet="UpdateCar";
-	%>
-	<form action=<%=servlet%> method="post" enctype="multipart/form-data" acceptcharset="UTF-8">
+	<form action=AddCar method="post" enctype="multipart/form-data" acceptcharset="UTF-8">
 		<table width="800px" cellspacing="3px" border="0px">
 			<tr>
 				<td align=right>კატეგორია<font color="red">*</font>:</td>
