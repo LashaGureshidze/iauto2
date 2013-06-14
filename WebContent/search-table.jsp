@@ -52,17 +52,26 @@
 }
 
 .dzebna {
-	background: #66CCFF;
-	padding: 3px 17px;
-	color: black;
-	font-family: 'Helvetica Neue', sans-serif;
-	font-size: 17px;
-	border-radius: 4px;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	border: 0px solid rgb(213, 150, 17);
-	cursor: pointer;
-	background-color: rgb(140, 140, 140);
+	margin-top: 10px;
+	margin-bottom: 10px;
+	min-width: 150px;
+	padding: 7px 20px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 19px;
+	line-height: 126%;
+	border-color: #3b6e22 #3b6e22 #2c5115;
+	border: 1px solid;
+	-webkit-border-radius: 5px;
+	color: #fff;
+	letter-spacing: 1px;
+	position: relative;
+	text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+	margin: 0;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 15px;
+	background-color: rgb(52, 129, 213);
+	-webkit-box-shadow: inset 0 1px 1px rgb(136, 180, 227);
 }
 
 .dzebna:hover {
