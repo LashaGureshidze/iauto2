@@ -1,3 +1,4 @@
+<%@page import="ge.iauto.services.CurrencyConvertor"%>
 <%@page import="ge.iauto.server.model.Car"%>
 <%@page import="ge.iauto.server.model.CarModel"%>
 <%@page import="ge.iauto.server.model.CarMake"%>
@@ -101,7 +102,7 @@
 					out.print("<font color='#FF0000' size='+2'>" + car.getPrice() + car.getCurrency() + "</font>   ");
 					if (car.isGanbajebuli()) out.print("განბაჟებული");
 					else {
-						out.print("+ განბაჟება: " + "<font color='#FF0000' size='+1'>" + (int)count((Car)request.getAttribute("carToShow")) + " ლარი</font>");
+						out.print("+ განბაჟება: " + "<font color='#FF0000' size='+1'>" + (int)(CurrencyConvertor.GelToUsd()*count((Car)request.getAttribute("carToShow"))) + "$</font>");
 					}
 				%>
 			</td>

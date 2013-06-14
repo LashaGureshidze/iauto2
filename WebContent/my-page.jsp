@@ -17,6 +17,7 @@
 }
 
 .aStyle tr td a {
+	width: 180px;
 	padding: 10px 25px 10px 25px;
 	text-decoration: none;
 	float: left;
@@ -41,12 +42,12 @@
 			</td>
 		</tr>
 		<tr>
-			<td align="left">
+			<td align="center">
 				<table>
 					<tr align="center">
-						<td >
-							<a style="font-weight: bold; font-size: 23px; text-decoration: none; color: blue;" href="my-page.jsp">ჩემი გვერდი</a>
-						</td>
+						<td background="clear_bg.png" align="center" style="background-repeat: no-repeat" width="793" height="22">
+							<a style=" font-size: 16px; text-decoration: none; color: black;" href="my-page.jsp">ჩემი გვერდი</a>
+					</td>
 					</tr>
 				</table>
 			</td>
