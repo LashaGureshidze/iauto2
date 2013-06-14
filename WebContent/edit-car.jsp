@@ -166,41 +166,6 @@
 	
 			<table cellspacing=10 border=0>
 				<tr>
-					<td align=right width=250>I სურათი (640x480) :</td>
-					<td align=left><input type="FILE" name="photo1" size=80 >
-					</td>
-				</tr>
-				<tr>
-					<td align=right width=250>II სურათი (640x480) :</td>
-					<td align=left><input type="FILE" name="photo2" size=80>
-					</td>
-				</tr>
-	
-				<tr>
-					<td align=right width=250>III სურათი (640x480) :</td>
-					<td align=left><input type="FILE" name="photo3" size=80>
-					</td>
-				</tr>
-	
-				<tr>
-					<td align=right width=250>IV სურათი (640x480) :</td>
-					<td align=left><input type="FILE" name="photo4" size=80>
-					</td>
-				</tr>
-	
-				<tr>
-					<td align=right width=250>V სურათი (640x480) :</td>
-					<td align=left><input type="FILE" name="photo5" size=80>
-					</td>
-				</tr>
-	
-				<tr>
-					<td align=right width=250>VI სურათი (640x480) :</td>
-					<td align=left><input type="FILE" name="photo6" size=80>
-					</td>
-				</tr>
-				
-				<tr>
 					<td align="center" id="addingParent"><br> <input id="adding" type="submit" name="add"
 						value="დამატება" disabled="disabled"/></td>
 				</tr>

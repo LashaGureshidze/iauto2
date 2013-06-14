@@ -41,5 +41,4 @@ public class DeleteCarServlet extends HttpServlet {
 		service.removeCar(Long.parseLong(request.getParameter("id")));
 		request.getRequestDispatcher("MyCarsServlet").forward(request, response);
 	}
-
 }
