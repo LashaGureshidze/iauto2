@@ -55,6 +55,11 @@
 
 </head>
 <body background="bg.png">
+<%
+		if(request.getSession().getAttribute("user")==null){
+			request.getRequestDispatcher("log-in.jsp").forward(request, response);
+		}else{
+	%>
 	<table style="margin: auto;">
 		<tr>
 			<td>
@@ -149,5 +154,6 @@
 			</td>
 		</tr>		
 	</table>
+	<%}%>
 </body>
 </html>

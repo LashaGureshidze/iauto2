@@ -4,8 +4,9 @@
 <html>
 <head>
 <link href="images.jpg" rel="shortcut icon" type="image/x-icon" />
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>ჩემი გვერდი</title>
+
 <style>
 .aStyle tr{
 	height: 25px;
@@ -34,7 +35,14 @@
 </style>
 </head>
 <body>
-	<%long userId = ((User)request.getSession().getAttribute("user")).getId();%>
+	<%
+		if(request.getSession().getAttribute("user")==null){
+			request.getRequestDispatcher("log-in.jsp").forward(request, response);
+		}else{
+	%>
+	<%
+		long userId = ((User)request.getSession().getAttribute("user")).getId();
+	%>
 	<table style="margin: auto;">
 		<tr>
 			<td>
@@ -68,5 +76,6 @@
 			</td>
 		</tr>	
 	</table>
+	<%}%>
 </body>
 </html>
