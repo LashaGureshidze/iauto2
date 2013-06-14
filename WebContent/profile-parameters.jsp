@@ -3,17 +3,15 @@
 <%@ page import="java.util.List" %>
 <%@ page import="ge.iauto.server.model.User" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-<%
-	if (request.getSession().getAttribute("user") == null)
-		request.getRequestDispatcher("home-page.jsp").forward(request, response);
-%>
-
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>www.IAuto.ge - პარამეტრების შეცვლა</title>
-
+<%
+	if(request.getSession().getAttribute("user")==null){
+		request.getRequestDispatcher("log-in.jsp").forward(request, response);
+	}else{
+%>
 <style>
 #changeButton {
 	background: #66CCFF;
@@ -233,5 +231,6 @@ function checkPasswordMatch(pos) {
 	</table>
 	</form>
 	</fieldset>
+	<%}%>
 </body>
 </html>
